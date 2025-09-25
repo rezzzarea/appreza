@@ -1,0 +1,47 @@
+PG
+1. package yg dibutuhkan untuk install next js
+2. syntax di cmd atau terminal untuk install next js
+3. perintah terminal untuk melihat hasil next js
+4. port localhost default untuk dibuka pada browser
+5. ekstensi file react yg digunakan di next js 15
+6. Bahasa pemrograman yg digunakan di react pada next js 15
+7. direktori dimana semua file frontend ditampilkan seperti page.tsx dan layout.tsx adalah
+8. 2 jenis routing di nextjs adalah 
+9 dimana kita meletakkan folder yg akan dibuat sebagai route 
+10 file apa yg disyaratkan u/ ada di folder routing 
+11 sintaks yg bisa digunakan untuk menampilkan function component 
+12 pada function component tampilan website terdapat didalam sintaks 
+13 kita tidak dapat langsung me-return html kecuali membungkusnya dahulu didalam
+14 untuk mengambil data dari source luar aplikasi seperti API, dan database online, sebelum sintaks fetch membutuhkan sintaks 
+15 untuk setiap function yang memiliki koneksi API, dan source luar aplikasi harus dijadikan function ...
+16 hasil fetch api yang masih bersifat raw perlu disimpan dalam format 
+17 untuk membuat routing dinamis digunakan folder tambahan dengan ciri simbol kurung ...
+18 seperti apa struktur parameter function component untuk routing dinamis  
+19 contoh pemanggilan data api langsung pada elemen html yang tepat 
+20 komponen modal yang digunakan untuk menampilkan pop-up diatas konten website lainnya adalah 
+21 file yg digunakan untuk meyimpan API key dan data rahasia aplikasi adalah 
+22 struktur data yang digunakan untuk tabel database, nama kolom, dan tipe data nya disebut 
+23 kolom database yang dijadikan patokan untuk data pada baris lainnya dikenal dengan istilah 
+24 3 tipe data umum yang digunakan pada database adalah 
+25 komponen-komponen yang kita buat untuk digunakan secara modular pada root folder disimpan dalam folder ..
+26 form yang digunakan untuk mensubmit informasi ke database terlebih dahulu divalidasi dengan ..
+27 useRouter merupakan fitur nextJS yang digunakan untuk
+28 fitur yang digunakan untuk menandai keadaan status suatu komponen untuk dirubah isinya adalah 
+29 dua argumen utama yang digunakan untuk fitur useState adalah 
+30 sintaks yang digunakan untuk mengosongkan input form setelah submit data form adalah 
+
+ESSAY
+1. penjelasan page.tsx dan layout.tsx
+menampilkan konten website, menampilkan kode tambahan yg akan muncul di page tsx 
+2. jelaskan seperti apa sistem routing di nextjs15
+menggunakan folder
+3. jelaskan bagaimana proses fetching api, mulai dari pencarian dokumentasi, penggunaannya dalam function component, penentuan parameter beserta tipe datanya sesuai standar typescript hingga proses menampilkan hasil fetch api nya
+cari endpoint nya, panggil di page tsx dg async function, tampilkan di html
+4. jelaskan proses bagaimana setup database di nextJS mulai dari instalasi package, pembuatan schema, hingga konfigurasi database pada aplikasi , hingga tabel database dapat tampil di database online
+install drizzle, buat schema, buka neon
+
+
+31 perintah yang digunakan untuk memperbarui tampilan website tanpa memuat ulang halaman adalah 
+32 ternary operator adalah sintaks if else yang dibuat dengan simbol ...
+33 sintaks yang secara umum digunakan untuk perintah yang berhubungan dengan komunikasi API adalah ...
+34 perintah yang dieksekusi tanpa mengenal berhasil tidaknya try-catch ada didalam sintaks ... 

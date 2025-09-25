@@ -1,0 +1,19 @@
+fitur klik mata, ilang tampilin defultnya hidden
+
+0. routing dinamis ? routing statis ? yg membedakan cirinya apa ?
+1. pembuatan folder routing
+2. pembuatan page.tsx u/ halaman aplikasi
+3. pembuatan function komponen di nextjs
+4. function parameter u/ routing dinamis, termasuk didalamnya params, folder dengan kurung kotak, misalnya [nomorSurat] itu sebagai placeholder routing dinamis nya, params misalnya yg {parama}:{params:Promise<TipeDatablablabla>}
+5. cara penentuan tipe data ketika membuat function parameter di typescript 
+    -annotation = inline , misalnya id:string
+    -declaration = internal (yg posisinya diatas), misalnya type = TipeDataBlalala { 
+        nomorSurat : string
+    }
+6. pembuatan function asynchronous itu u/ apa? u/ perintah yg membutuhkan data dr luar aplikasi, misalnya koneksi api, database online, dst.
+7. JSON itu apa? response dari pemanggilan api itu ada yg berupa object & ada yg berupa array, u/ ngeliat jsonformatter jsonbeautifier, cara ambil datanya gimana, & menentukan return dari function asynchronous seperti apa?
+8. pemanggilan data matengan hasil fetching api di html nya yg kita tulis di return halaman komponen cara seperti apa, 
+    misalnya <h1> Suhu : {cuaca.temperature} </h1> , dst.
+
+
+

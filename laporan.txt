@@ -1,0 +1,54 @@
+instalasi program syarat u/ aplikasi nextjs 
+    -nodejs
+pembuatan aplikasi nextjs
+    sintaks di terminal
+    opsi pilihan untuk instalasi aplikasi nextjs
+    memahami typescript di nextjs
+    memahami function component di nextjs
+routing di nextjs 
+    routing statis: yg g pakai kurung kotak
+    routing dinamis: yg pakai kurung kotak 
+menggunakan API di next js 
+    API = Application Programming Interface
+    fungsi: penghubung antara user dan server 
+    method yg digunakan pada API:
+        create,read,update,delete
+praktek API method get di aplikasi nextjs:
+    memahami fetching API di nextjs
+    format JSON yg diperoleh dg method get:
+        -bagaimana cara mengetahui format response API
+        -cara melihat JSON yg terformat rapih:
+            -jsonformatter = format dan tipe data
+            -jsonbeautifier = melihat jumlah value
+        -array, ciri [] (API mockup, API geografis, API kode negara )
+        -object, ciri {} (API jokes, API quran, API kurs, API cuaca, API waktu)
+    cara menampilkan data spesifik dari API ke aplikasi nextjs
+praktek membuat aplikasi fullstack di nextjs:
+    setup database:
+        schema database:
+            pembuatan tabel data
+            penentuan kolom dan tipe data di database
+            primary key: patokan u/ data 
+            UUID: Universally Unique Identifier
+        platform postgre SQL
+        library nextjs ke database
+    setup backend nextjs:
+        server action
+        pembuatan endpoint u/ 
+            create, read, update, & delete 
+    setup frontend nextjs:
+        instalasi framework u/ ui
+        pembuatan komponen table, button, form 
+        validasi form
+    dasar state management di react:
+        useState : ada trigger nya
+        useEffect : langsung tereksekusi
+    setup autentikasi 
+        login logout email dg akun
+        login dengan google
+        
+        role management, admin, user, guest
+    setup payment gateway
+    sinkronisasi dengan domain pribadi
+
+    

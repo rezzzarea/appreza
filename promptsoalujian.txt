@@ -1,0 +1,220 @@
+i gave multiple choices (but the questions only) which is here:
+PG
+1. package yg dibutuhkan untuk install next js? - npm,yarn,pnpm,bun,dst
+2. syntax di cmd atau terminal untuk install next js - npx create-next-app@latest namaaplikasi
+3. perintah terminal untuk melihat hasil next js - npm run dev
+4. port localhost default untuk dibuka pada browser - localhost:3000
+5. ekstensi file react yg digunakan di next js 15 - .tsx
+6. Bahasa pemrograman yg digunakan di react pada next js 15 - typescript
+7. direktori dimana semua file frontend ditampilkan seperti page.tsx dan layout.tsx adalah - app
+8. 2 jenis routing di nextjs adalah - statis dan dinamis
+9 dimana kita meletakkan folder yg akan dibuat sebagai route - app
+10 file apa yg disyaratkan u/ ada di folder routing - page.tsx
+11 sintaks yg bisa digunakan untuk menampilkan function component - export default function NamaKomponen(){return()}
+12 pada function component tampilan website terdapat didalam sintaks - return
+13 kita tidak dapat langsung me-return html kecuali membungkusnya dahulu didalam - div atau fragment
+14 untuk mengambil data dari source luar aplikasi seperti API, dan database online, sebelum sintaks fetch membutuhkan sintaks - await
+15 untuk setiap function yang memiliki koneksi API, dan source luar aplikasi harus dijadikan function ... - asynchronous
+16 hasil fetch api yang masih bersifat raw perlu disimpan dalam format - json
+17 untuk membuat routing dinamis digunakan folder tambahan dengan ciri simbol kurung ... - siku []
+18 seperti apa struktur parameter function component untuk routing dinamis - ({params}:{params:Promise<{namafolderroutedinamis:string}>})
+19 contoh pemanggilan data api langsung pada elemen html yang tepat - {user.data}
+20 komponen modal yang digunakan untuk menampilkan pop-up diatas konten website lainnya adalah - <Dialog />
+21 file yg digunakan untuk meyimpan API key dan data rahasia aplikasi adalah - .env
+22 struktur data yang digunakan untuk tabel database, nama kolom, dan tipe data nya disebut - schema
+23 kolom database yang dijadikan patokan untuk data pada baris lainnya dikenal dengan istilah - primary key
+24 3 tipe data umum yang digunakan pada database adalah - text,integer,boolean
+25 komponen-komponen yang kita buat untuk digunakan secara modular pada root folder disimpan dalam folder .. - components
+26 form yang digunakan untuk mensubmit informasi ke database terlebih dahulu divalidasi dengan .. - formSchema
+27 useRouter merupakan fitur nextJS yang digunakan untuk - menavigasi tampilan website untuk user
+28 fitur yang digunakan untuk menandai keadaan status suatu komponen untuk dirubah isinya adalah - useState
+29 dua argumen utama yang digunakan untuk fitur useState adalah - boolean & function
+30 sintaks yang digunakan untuk mengosongkan input form setelah submit data form adalah - form.reset()
+
+please make me the other options as well for the multiple choice, i already  put the answer each number after - symbol just need 3 other options
+i want the format exactly like this
+
+1 Apa diantara fungsi dari position: relative pada CSS ?
+A. Membuat elemen menjadi tetap pada website
+B. Membuat element child relatif pada elemen yang relatif 
+C. Menambahkan posisi yang tepat pada html
+D. Menghubungkan elemen dengan CSS
+
+2 Apa diantara fungsi digunakannya elemen heading?
+A. Menampilkan teks judul / sub judul
+B. Memperbesar teks paragraph
+C. Menipiskan gambar pada website
+D. Membuat bentuk kotak pada teks
+
+3 Properti CSS apa yang digunakan untuk mengganti warna background ?
+A. wallpaper
+B. background-color
+C. background
+D. color
+
+4 Apa yang terjadi jika website telah responsive lalu ukuran layar diubah menjadi lebih kecil ?
+A. Layout website berubah
+B. Navigasi header menghilang
+C. Ukuran font header mengecil
+D. Semua benar
+
+5 Apa fungsi dari display: flex; pada suatu container elemen?
+A. Membuat elemen bulat
+B. Membuat elemen sejajar horizontal 
+C. Menyembunyikan elemen
+D. Mengubah warna elemen
+
+6 Apa yang dilakukan oleh justify-content: space-between pada navbar?
+A. Memberikan jarak merata di antara elemen
+B. Menyusun elemen ke tengah menempel
+C. Menyusun elemen ke kanan semua
+D. Menyusun elemen ke kiri semua
+
+7 Apa fungsi dari gap: 30px; pada container dengan display flex?
+A. Memberikan jarak antar elemen
+B. Mengubah ukuran font
+C. Menyembunyikan elemen
+D. Mengubah warna elemen
+8 Apa yang terjadi jika value pada border-radius diperbesar?
+A. Garis tepi elemen semakin besar
+B. Pojok elemen semakin melengkung
+C. Elemen menjadi semakin hitam
+D. Navigasi elemen menjadi semakin cepat
+
+
+9 Apa fungsi dari align-items: center; pada container flexbox?
+A. Menyusun elemen ke tengah vertikal
+B. Menyusun elemen menempel ke pinggir
+C. Menyembunyikan elemen
+D. Mengubah ukuran elemen
+
+10 Apa yang dilakukan oleh elemen <img> ?
+A. Menampilkan gambar
+B. Mengubah ukuran gambar
+C. Menyembunyikan gambar
+D. Mengubah warna gambar
+
+11 Apa properti CSS yang digunakan untuk memperbesar ukuran button?
+A. Padding
+B. Margin
+C. Space
+D. Area
+
+12 Apa yang dilakukan oleh border-radius: 18px; pada button?
+A. Membuat sudut tombol melengkung
+B. Mengubah warna tombol
+C. Menyembunyikan tombol
+D. Mengubah ukuran tombol
+
+13 Apa fungsi dari font-weight: 600; pada tombol?
+A. Membuat teks lebih tebal
+B. Mengubah ukuran font menjadi kecil
+C. Mengubah warna teks
+D. Menyembunyikan teks
+
+14 Apa yang terjadi jika elemen memiliki position absolute ?
+A. Posisinya akan bergantung pada elemen parent yang relative
+B. Penempatan elemen dapat diatur dengan property left dan right
+C. Properti top dan bottom dapat mengatur posisinya secara vertikal
+D. Semua benar
+
+
+15 Apa fungsi dari text-decoration: none; pada elemen anchor?
+A. Menghilangkan garis bawah
+B. Mengubah warna h1
+C. Menyembunyikan elemen
+D. Mengubah ukuran teks
+
+16 Diantara hal yang dapat dilakukan dengan @import url(...);?
+A. Menghubungkan ke Google Fonts
+B. Menambahkan gambar
+C. Menyembunyikan elemen
+D. Mengubah warna elemen
+
+17 Apa diantara fungsi dari CSS reset dalam pengaturan website?
+A. Menghilangkan margin atau padding bawaan yang tidak diinginkan
+B. Menyembunyikan elemen pada suatu website
+C. Mengubah ukuran font agar menjadi lebih besar
+D. Mengubah warna latar belakang website menjadi dark mode
+
+18 Apa yang dilakukan oleh margin-top: 80px; pada main h1?
+A. Memberikan jarak luar bagian atas
+B. Mengubah ukuran font bagian atas
+C. Menyembunyikan elemen atas
+D. Mengubah tulisan teks agar keatas
+
+19 Apa fungsi dari padding: 12px 20px; pada button?
+A. Memperbesar ukuran button
+B. Menciutkan ukuran font
+C. Menyembunyikan tombol
+D. Mengubah warna tombol
+
+20 Apa yang dilakukan oleh font-family: "Montserrat", serif;?
+A. Mengatur font menjadi Montserrat
+B. Menyembunyikan elemen
+C. Mengubah ukuran font
+D. Mengubah warna font
+
+21 Apa fungsi dari property CSS display: none?
+A. Menyembunyikan elemen
+B. Menampilkan ikon menu
+C. Mengubah ukuran teks
+D. Mengubah warna ikon
+
+
+
+22 Apa yang dilakukan oleh width: 50%; pada suatu container?
+A. Mengatur lebar elemen
+B. Mengubah warna elemen
+C. Menyembunyikan elemen
+D. Mengubah ukuran font
+
+23 Apa fungsi dari background-color: tomato;?
+A. Mengubah warna latar belakang
+B. Menyembunyikan elemen
+C. Mengubah ukuran font
+D. Mengubah warna teks
+
+24 Apa tujuan kode CSS  font-size: 32px; ?
+A. Mengatur ukuran font
+B. Mengubah warna font
+C. Menyembunyikan elemen
+D. Mengubah warna latar
+
+25 Apa fungsi dari border: tomato 3px solid; pada button?
+A. Mengatur garis tepi button
+B. Mengubah ukuran button
+C. Menyembunyikan button
+D. Mengubah warna latar
+
+26 Apa yang dilakukan oleh margin-bottom: 30px; pada main p?
+A. Memberikan jarak luar bagian bawah
+B. Mengubah ukuran font lebih kecil
+C. Menyembunyikan elemen kebawah
+D. Mengubah arah teks melengkung
+
+27 Apa fungsi dari properti font-weight ?
+A. Membuat teks miring
+B. Mengubah ketebalan teks
+C. Menyembunyikan elemen
+D. Mengubah warna teks
+
+28 Elemen yang digunakan untuk mengutip cdn / css external ?
+A. <link>
+B. <style>
+C. <src>
+D. Semua salah
+
+
+
+29 Apa yang dimaksud dengan boilerplate html?
+A. Format elemen untuk pembuatan website
+B. Mengubah ukuran font teks
+C. Menyembunyikan elemen navigasi
+D. Mengubah warna teks
+
+30 Apa fungsi elemen <button> ?
+A. Menampilkan tombol pada website
+B. Mengubah ukuran font teks
+C. Menyembunyikan elemen
+D. Mengubah warna latar

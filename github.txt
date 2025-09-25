@@ -1,0 +1,12 @@
+install cli.github.com
+ls
+    mastiin folder yg akan di push ke github 
+git --version 
+gh --version    
+    mastiin deployment dg git & gh bisa dilakukan
+git init
+    memberikan sinyal bahwa folder di lokasi cmd ini akan berangkat ke gh secara online (tp masih sinyal)
+git add .
+    meng-capture file yg akan kita simpan ke github (tp belum ada keterangan versi aplikasi nya)
+git add --renormalize .
+    menormalisasi versi OS agar tidak di warning github 

@@ -1,0 +1,10 @@
+import DropdownSurat from '@/components/combobox/dropdown-surat'
+import React from 'react'
+
+export default function page() {
+  return (
+    <div>
+      <DropdownSurat />
+    </div>
+  )
+}

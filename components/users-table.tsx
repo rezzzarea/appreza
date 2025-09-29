@@ -2,7 +2,6 @@ import { getUsers } from "@/server/users"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,

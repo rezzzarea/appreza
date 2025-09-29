@@ -1,6 +1,6 @@
 "use client"
  
-import { email, set, z } from "zod"
+import { z } from "zod"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -10,20 +10,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "../ui/input"
-import { signInUser, signUpUser } from "@/server/users"
+import { signUpUser } from "@/server/users"
 import { useState } from "react"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"

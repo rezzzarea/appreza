@@ -1,5 +1,5 @@
 'use client'
-import { Logo } from '@/components/logo'
+// import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Mail, Menu, SendHorizonal, X } from 'lucide-react'
 import Image from 'next/image'
@@ -79,7 +79,7 @@ export default function HeroSection() {
                                         asChild
                                         variant="outline"
                                         size="sm">
-                                        <Link href="#">
+                                        <Link href="/signup">
                                             <span>Sign Up</span>
                                         </Link>
                                     </Button>
@@ -87,7 +87,7 @@ export default function HeroSection() {
                                     <Button
                                         asChild
                                         size="sm">
-                                        <Link href="#">
+                                        <Link href="/login">
                                             <span>Login</span>
                                         </Link>
                                     </Button>

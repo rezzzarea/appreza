@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 
 async function fetchAreaById(areaId:string) {
     const response = await fetch(

@@ -20,28 +20,28 @@ import {
 } from "@/components/ui/popover"
 import { fetchDataQuran } from "@/lib/quran"
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "contoh",
-    label: "Astro",
-  },
-]
+// const frameworks = [
+//   {
+//     value: "next.js",
+//     label: "Next.js",
+//   },
+//   {
+//     value: "sveltekit",
+//     label: "SvelteKit",
+//   },
+//   {
+//     value: "nuxt.js",
+//     label: "Nuxt.js",
+//   },
+//   {
+//     value: "remix",
+//     label: "Remix",
+//   },
+//   {
+//     value: "contoh",
+//     label: "Astro",
+//   },
+// ]
 
 export default function DropdownSurat(
   {suratTerpilih,suratYgBerubah}:{

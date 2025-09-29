@@ -10,3 +10,35 @@ git add .
     meng-capture file yg akan kita simpan ke github (tp belum ada keterangan versi aplikasi nya)
 git add --renormalize .
     menormalisasi versi OS agar tidak di warning github 
+gh auth login
+    login github agar bisa mengirim dan mengedit repositori dari laptop ke github online
+    kunci jawaban:
+        github.com
+        https 
+            g terikat device spt ssh
+        authenticate w/ github credentials: pilih Y - biar g bolak balik isi username password
+        how to authenticate github cli: pilih paste an authentication token
+git commit -m "nama / keterangan versi aplikasi yg akan di push"
+    kalau ditegor tell me who you are, kenalan dulu sm git nya 
+    git config user.email "emailghantum@gmail.com"
+    git config user.name "usernameghantum"
+        git config user.email "rezzzarea@gmail.com"
+        git config user.name "rezzzarea"
+gh repo create appreza --public --source=. --remote=origin --push
+    buat repositori dr cli.github biar g mondar-mandir dr website 
+    kalau mau dibuat --private u/ private repositori 
+git remote -v 
+    cek udah sinkron atau belum antara local / laptop / device kita dg repositori / folder online di github
+
+repositori aman V 
+
+linting: 
+    -mastiin fitur aplikasi di local udh aman semua
+    -buka terminal baru di vscode: npm run lint
+        -penyakit1: copy.tsx, coba ctrl+p ketik copy.tsx klo msh ada ganti ekstensi file yg tdnya tsx jaditxt (langkah aman sementara)
+        -penyakit2: unused variable
+        -penyakit3: menggunakan <img> (harusny diubah ke Image), <a> (hrsny diubah ke Link)
+        -penyakit4: menggunakan ' (harusny diubah jd &apos; biar g error)
+    build test: npm run build
+
+

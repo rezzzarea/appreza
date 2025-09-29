@@ -1,5 +1,5 @@
 "use client"
-import { email, z } from "zod"
+import { z } from "zod"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -10,19 +10,16 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { signInUser } from "@/server/users"
 import { toast } from "sonner"
 
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -40,7 +37,7 @@ export function ForgotPasswordForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-    const router = useRouter() //fungsinya mengaktifkan fitur router yg kita pakai u/ ganti halaman bila login berhasil
+    // const router = useRouter() //fungsinya mengaktifkan fitur router yg kita pakai u/ ganti halaman bila login berhasil
     const [isLoading,setIsLoading] = useState(false) //fungsinya sebagai keran untuk mencegah spam submit data form ke database
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({

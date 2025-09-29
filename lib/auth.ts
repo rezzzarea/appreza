@@ -19,7 +19,8 @@ export const auth = betterAuth({
     }),
     // fitur verifikasi email
     emailVerification:{
-        sendVerificationEmail: async({user,url,token},request) => {
+        // sendVerificationEmail: async({user,url,token},request) => {
+        sendVerificationEmail: async({user,url}) => {
             const{data,error} = await resend.emails.send({
                 from: 'Reza App Support <admin@support.aqajade.com>',
                 to: user.email,
@@ -50,10 +51,11 @@ export const auth = betterAuth({
     // fitur login dengan email dan password - pr login dg username/email & password
     emailAndPassword: {
       enabled: true, 
-    //   dibawahini fitur peksa wajib verifikasi email, kalau butuh tinggal nyalain
-    //   requireEmailVerification: true,
+      //   dibawahini fitur peksa wajib verifikasi email, kalau butuh tinggal nyalain
+      //   requireEmailVerification: true,
       // fitur reset password   
-      sendResetPassword: async ({user, url, token}, request) => {
+    //   sendResetPassword: async ({user, url, token}, request) => {
+      sendResetPassword: async ({user, url}) => {
         const {data,error} = await resend.emails.send({
             // from: 'Acme <onboarding@resend.dev>',
             from: 'Reza App Security <security@support.aqajade.com>',

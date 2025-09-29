@@ -14,7 +14,9 @@ export default function LogOut() {
             await authClient.signOut()
             toast.success("antum sudah logout, terima kasih sudah mampir, jazaakallaahu khayra")
             router.push("/")
-        } catch (_) {
+        } catch (error) {
+            toast.error("gagal logout, silakan coba lagi")
+            console.log(error)
         } finally {
             setIsLoading(false)
         }

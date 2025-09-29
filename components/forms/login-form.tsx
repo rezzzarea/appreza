@@ -1,5 +1,5 @@
 "use client"
-import { email, z } from "zod"
+import { z } from "zod"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
@@ -21,7 +20,6 @@ import { toast } from "sonner"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -56,11 +54,14 @@ export function LoginForm({
     const signInWithGoogle = async () => {
       setIsLoading(true) 
       try{
-        const data = await authClient.signIn.social({
+        // const data = await authClient.signIn.social({
+          await authClient.signIn.social({
           provider: "google",
           callbackURL: "/dashboard" //mengarahkan ke dashboard bila berhasil login dengan google
         });
-      } catch(_){
+      } catch(error){
+          console.error(error)
+          toast.error("Gagal login dengan Google")
       } finally {
         setIsLoading(false)
       }

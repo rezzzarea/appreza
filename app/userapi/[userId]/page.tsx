@@ -9,7 +9,6 @@ async function fetchUser(id:string){
     return user
 }
 
-const nama = {}
 
 export default async function UserPage(
     {params}:{params:Promise<{userId:string}>}

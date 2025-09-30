@@ -10,6 +10,8 @@ git add .
     meng-capture file yg akan kita simpan ke github (tp belum ada keterangan versi aplikasi nya)
 git add --renormalize .
     menormalisasi versi OS agar tidak di warning github 
+buat gh token
+    pastiin sebelumnya repositori ke main, WAJIB
 gh auth login
     login github agar bisa mengirim dan mengedit repositori dari laptop ke github online
     kunci jawaban:
@@ -24,6 +26,22 @@ git commit -m "nama / keterangan versi aplikasi yg akan di push"
     git config user.name "usernameghantum"
         git config user.email "rezzzarea@gmail.com"
         git config user.name "rezzzarea"
+setting default branch ke main 
+    cek list branch repositori
+        git branch
+        klo g ada isinya buat default branch ke main:
+            git checkout -b main
+    kalo udh terlanjur 
+        cara1 master rename jd main dulu 
+            git branch -m master main
+            push perubahan: git push origin main
+            apus branch master: git push origin --delete master
+            update di local:
+                git fetch origin
+                git branch -u origin/main main
+        cara2 buat main branch trs apus yg master 
+            buat main branch: git checkout -b main
+            push ke gh: git push origin main
 gh repo create appreza --public --source=. --remote=origin --push
     buat repositori dr cli.github biar g mondar-mandir dr website 
     kalau mau dibuat --private u/ private repositori 

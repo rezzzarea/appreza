@@ -34,8 +34,9 @@ setting default branch ke main
     kalo udh terlanjur 
         cara1 master rename jd main dulu 
             git branch -m master main
-            push perubahan: git push origin main
-            apus branch master: git push origin --delete master
+                klo udh di push lanjut yg bawah - kondisikan aja
+                push perubahan: git push origin main
+                apus branch master: git push origin --delete master
             update di local:
                 git fetch origin
                 git branch -u origin/main main

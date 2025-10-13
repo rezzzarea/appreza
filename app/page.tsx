@@ -1,10 +1,13 @@
 import CallToAction from '@/components/call-to-action'
 import ContentSection from '@/components/content-1'
+import Content2 from '@/components/content-2'
 import FAQsFour from '@/components/faqs-4'
+import Features from '@/components/features-12'
 import FeaturesSection from '@/components/features-7'
 import FooterSection from '@/components/footer'
 import HeroSection from '@/components/hero-section'
 import IntegrationsSection from '@/components/integrations-7'
+import Integrations8 from '@/components/integrations-8'
 import LogoCloud from '@/components/logo-cloud'
 import Pricing from '@/components/pricing'
 import PricingComparator from '@/components/pricing-comparator'
@@ -18,10 +21,13 @@ export default function page() {
     <div>
       <HeroSection />
       <LogoCloud />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
+      <Features />
       <IntegrationsSection />
+      <Integrations8 />
       <TeamSection />
       <ContentSection />
+      <Content2 />
       <StatsSection />
       <WallOfLoveSection />
       <Pricing />

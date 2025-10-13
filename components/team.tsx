@@ -4,7 +4,7 @@ const members = [
     {
         name: 'Liam Brown',
         role: 'Founder - CEO',
-        avatar: 'https://alt.tailus.io/images/team/member-one.webp',
+        avatar: '/rezabaca.jpg',
         link: '#',
     },
     {

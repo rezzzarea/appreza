@@ -1,2 +1,4 @@
 linting:
     npm install --save-dev eslint @typescript-eslint/eslint-plugin eslint-plugin-unused-imports
+
+kalau mau tambah fitur di aplikasi 

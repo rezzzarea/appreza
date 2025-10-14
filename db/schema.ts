@@ -83,25 +83,22 @@ export const verification = pgTable("verification", {
     () => /* @__PURE__ */ new Date(),
   ),
 });
-// export const session = pgTable("session", { 
-//   id: uuid("id").primaryKey().defaultRandom(),
-//   userId: text("userId").notNull().unique(), 
-//   token: text("token").notNull(), 
-//   expiresAt: text("expiresAt").notNull(),
-//   createdAt: timestamp("created_at").defaultNow(),
-//   updatedAt: timestamp("updated_at").defaultNow(),
-// });
-// export const account = pgTable("account", { 
-//   id: uuid("id").primaryKey().defaultRandom(),
-//   userId: text("userId").notNull().unique(), 
-//   accessToken: text("accessToken").notNull(), 
-//   refreshToken: text("refreshToken").notNull(), 
-//   password: text("password").notNull(),
-//   accessTokenExpiresAt: timestamp("accessTokenExpiresAt").defaultNow(),
-//   refreshTokenExpiresAt: timestamp("refreshTokenExpires").defaultNow(),
-//   createdAt: timestamp("created_at").defaultNow(),
-//   updatedAt: timestamp("updated_at").defaultNow(),
-// });
+// skema / struktur tabel / struktur database u/ jurnal/notebooks seperti 1 binder 
+// 1 binder itu yg ada di aplikasi antum, 1 kategori dari binder itu adalah 1 notebook
+// 1 notebook itu isinya banyak halaman, nah halaman itu adalah notes
+export const notebooks = pgTable("notebooks", {
+  // struktur skema 
+  // id / tulisan yg warna biru itu adalah nama variabel yg akan kita pakai di aplikasi kita
+  // "id" yg diantara tanda kutip itu adalah nama kolom yg akan muncul database kita (neon)
+  // setelah titik dua (:) ada tulisan text/integer/boolean/timestamp itu adalah tipe data dari kolom tsb
+  // text itu string di javascript, integer itu number di javascript
+  // kenapa ngga uuid untuk tipe data id? selain untuk konsisten, juga untuk memudahkan interaksi database kalau pakai string
+  // takutnya kalau pakai uuid, ntar pas interaksi database perlu di parse dulu dll konflik segala macem jd amannya text
+  // id: text("id").primaryKey().defaultFn(() => crypto.randomUUID()), // primaryKey itu artinya kolom tsb adalah primary key
+  title: text("title").notNull(),
+});
+
+
 
 // ekspor skema user u/ fitur hafalan quran
 export type User = typeof user.$inferSelect //tp const hrs sama ky disini

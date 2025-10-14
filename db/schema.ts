@@ -22,6 +22,7 @@ setelah dieksekusi SQL diatas dan databsae bersih baru antum : npx drizzle-kit p
 gabisa dari terminal, karena kita pakai databse online gratisan
 */
 
+import { relations, sql } from "drizzle-orm";
 import { uuid, integer, text, boolean, pgTable, timestamp } from "drizzle-orm/pg-core";
 export const user = pgTable("user", { //users = nama sql table kita di neon postgreSQL const nya bebas
   id: text("id").primaryKey(),
@@ -84,19 +85,65 @@ export const verification = pgTable("verification", {
   ),
 });
 // skema / struktur tabel / struktur database u/ jurnal/notebooks seperti 1 binder 
-// 1 binder itu yg ada di aplikasi antum, 1 kategori dari binder itu adalah 1 notebook
-// 1 notebook itu isinya banyak halaman, nah halaman itu adalah notes
+  // 1 binder itu yg ada di aplikasi antum, 1 kategori dari binder itu adalah 1 notebook
+  // 1 notebook itu isinya banyak halaman, nah halaman itu adalah notes
 export const notebooks = pgTable("notebooks", {
   // struktur skema 
-  // id / tulisan yg warna biru itu adalah nama variabel yg akan kita pakai di aplikasi kita
-  // "id" yg diantara tanda kutip itu adalah nama kolom yg akan muncul database kita (neon)
-  // setelah titik dua (:) ada tulisan text/integer/boolean/timestamp itu adalah tipe data dari kolom tsb
-  // text itu string di javascript, integer itu number di javascript
-  // kenapa ngga uuid untuk tipe data id? selain untuk konsisten, juga untuk memudahkan interaksi database kalau pakai string
-  // takutnya kalau pakai uuid, ntar pas interaksi database perlu di parse dulu dll konflik segala macem jd amannya text
-  // id: text("id").primaryKey().defaultFn(() => crypto.randomUUID()), // primaryKey itu artinya kolom tsb adalah primary key
-  title: text("title").notNull(),
+    // id / tulisan yg warna biru itu adalah nama variabel yg akan kita pakai di aplikasi kita
+    // "id" yg diantara tanda kutip itu adalah nama kolom yg akan muncul database kita (neon)
+    // setelah titik dua (:) ada tulisan text/integer/boolean/timestamp itu adalah tipe data dari kolom tsb
+    // text itu string di javascript, integer itu number di javascript
+    // kenapa ngga uuid untuk tipe data id? selain untuk konsisten, juga untuk memudahkan interaksi database kalau pakai string
+    // takutnya kalau pakai uuid, ntar pas interaksi database perlu di parse dulu dll konflik segala macem jd amannya text
+    // opsi tipe data uuid untuk kolom id 
+    // sebab pentingnya memahami uuid (Universally Unique Identifier) selain agar tidak ada data yg bentrok, juga membantu u/ migrasi database seandainya kita akan ganti provider database, dan uuid terbaik a/ yg pakai strip karena fleksible u/ berbagai tipe dan provider database spt mysql, postgreSQL, mongodb, dll
+    // id: text("id").$defaultFn(() => crypto.randomUUID()).primaryKey(), 
+    // id: text("id").primaryKey().default("gen_random_uuid()"), 
+  id: text("id").primaryKey().default(sql`gen_random_ uuid()`), //gen_random_uuid() itu function bawaan postgreSQL
+  name: text("name").notNull(), //nama kategori di jurnal antum
+  userId: text("user_id"), //id user yg punya kategori di jurnal tsb
+  createdAt: timestamp("created_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
+  updatedAt: timestamp("updated_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
 });
+// skema / struktur tabel / struktur database u/ tiap lembar/halaman di dalam 1 kategori jurnal
+  // tujuannya knp dikasih struktur skema agar bisa kita sangkutin nanti dengan kategori jurnal yg udh buat atau bahkan mengembangkan fitur2 lain spt tag, sharing, kolaborasi, komentar, dll
+  // sistem databasenya a/ kita buat catetan yaitu di bagian notes ada foreign key (references) yg wajib nyangkut yaitu notebookId yg merujuk ke tabel notebooks, maksudnya kita harus akses notebook / kategori jurnal nya dulu baru bisa bikin halaman note, sistemnya adalah ga pusing di akhir karena kita wajibin di aplikasi kita untuk mastiin kategori jurnalnya diawal sebelum buat lembar catatan baru / note, dan foreign key yg kita pasang disini berfungsi sebagai anak dari tabel notebooks
+  // fungsi skema atau tabel notes ini a/ sebagai anak dari notebooks, jadi di dalam aplikasi antum wajib ada kategori jurnalnya dulu baru bisa bikin halaman note, jadi kalau notebooks / kategori jurnalnya diapus maka isi notes yg ada didalamnya akan ikutan terhapus semua halaman note di dalamnya, itulah yg dimaksud dengan cascade
+  // fungsi onDelete:"cascade" itu adalah ketika kita hapus kategori jurnalnya, maka semua halaman note di dalam kategori jurnal tsb akan terhapus semua
+export const notes = pgTable("notes", {
+  id: text("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(), //judul halaman
+  content: text("content").notNull(), //isi halaman
+  notebookId: text("notebook_id").references(() => notebooks.id, { onDelete: "cascade" }), //id kategori jurnal yg punya halaman tsb
+  createdAt: timestamp("created_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
+  updatedAt: timestamp("updated_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
+  // knp ana g pakaikan userId? krn udh ada di tabel notebooks
+  // userId: text("user_id"), //id user yg punya halaman tsb
+})
+// relasi notebook tujuannya u/ memudahkan interaksi database ketika kita mau join / gabungin tabel notebooks dengan tabel notes
+  // fungsi utamanya nanti adalah u/ bikin fitur nampilin daftar kategori jurnal beserta jumlah halaman note di dalamnya yg akan kita tampilkan di sidebar dashboard aplikasi kita
+  // relasi ini adalah relasi 1 ke banyak (one to many) yaitu 1 notebook itu bisa punya banyak notes
+  // relasi ini juga memudahkan kita u/ query / ambil data dari 2 tabel sekaligus
+  // sebab kita membuat skema / database sebelum membuat fitur agar tidak bingung di akhir dan membuat kita punya gambaran yg jelas tentang alur data di aplikasi kita
+  // maksudnya disini a/ notebooks yg ada disini adalah kategori jurnal, dan user itu adalah pemilik dari kategori jurnal tsb
+  // jg fungsi relations disini a/ menyatakan bahwa 1 kategori jurnal itu punya beberapa halaman note dan hanya punya 1 user / pemilik kategori sesuai dengan userId yg ada di tabel notebooks yg mana userId itu telah tersangkut dengan userId dg foreign key yg merujuk ke tabel user
+export const notebookRelations = relations(notebooks,({one,many})=>({
+  notebook: many(notes),
+  user: one(user,{
+    fields:[notebooks.userId],
+    references:[user.id]
+  })
+}))
+// relasi notes tujuannya u/ memudahkan interaksi database ketika kita mau join / gabungin tabel notes dengan tabel notebooks
+  // relasi ini adalah relasi banyak ke 1 (many to one) yaitu banyak notes itu hanya punya 1 notebook
+  // relasi ini juga memudahkan kita u/ query / ambil data dari 2 tabel sekaligus
+  // note relations ini adalah kebalikan dari notebookRelations karena relasinya adalah banyak ke 1 (many to one) fungsi relasi ini adalah u/ bikin fitur nampilin daftar halaman note beserta kategori jurnalnya yg akan kita tampilkan di halaman dashboard aplikasi kita
+export const noteRelations = relations(notes,({one})=>({
+  notebook: one(notebooks,{
+    fields:[notes.notebookId],
+    references:[notebooks.id]
+  }),
+}))
 
 
 

@@ -99,6 +99,14 @@ export const notebooks = pgTable("notebooks", {
     // sebab pentingnya memahami uuid (Universally Unique Identifier) selain agar tidak ada data yg bentrok, juga membantu u/ migrasi database seandainya kita akan ganti provider database, dan uuid terbaik a/ yg pakai strip karena fleksible u/ berbagai tipe dan provider database spt mysql, postgreSQL, mongodb, dll
     // id: text("id").$defaultFn(() => crypto.randomUUID()).primaryKey(), 
     // id: text("id").primaryKey().default("gen_random_uuid()"), 
+    // sebab kenapa ana ga pakai foreign key u/ sangkutin ke tabel user? krn di aplikasi kita user itu bisa punya banyak kategori jurnal / notebook, dan di tabel notes / halaman catetan itu udh ada foreign key yg nyangkut ke tabel notebooks, jadi udh ga perlu lagi nyangkut ke tabel user
+    // dan fitur foreign key dan relations ini akan bermanfaat u/ nanti kita upgrade aplikasi kita terutama di tabel user misalnya nanti akan ada role user, misalnya ada:
+      // role owner yg bs otak atik segalanya, 
+      // role admin (kepsek/pemilik perusahaan) yg dia bisa lihat seluruh data, gabisa edit, tapi punya fitur u/ negur / nampilin broadcast di aplikasinya u/ seluruh user sehingga nanti kalau ada user biasa / user orang tua bisa menerima pesan penting dari pemilik perusahaan atau negur secara individu misalnya ada user yang datanya belum dibuat laporannya nanti pemilik perusahaannya bisa langsung negur misalnya eh kok data yg ini belum diupdata ada masalah apa? sehingga gaperlu capek" buka wa & bisa langsung negur semua yg berkaitan dg kerjaan di aplikasi saja gaperlu merembet segala keluar aplikasi lain untuk ngingetin
+      // role user biasa / murid / pegawai yg tugasnya a/ untuk menginput data yg nanti dia bisa liat sendiri kategori jurnalnya, halaman note dia sendiri, dan dia gabisa liat data orang lain
+      // role guest/supervisor yg bs liat data org lain tp gabisa ngedit, misal org tua bs liat data anaknya tp gabisa ngedit
+      // role auditor/akuntan yg bs liat data org lain tp gabisa ngedit, misal akuntan bs liat data keuangan perusahaan tp gabisa ngedit
+      // user guru/supervisor, user orang tua yg hanya bisa melihat sajadll
   id: text("id").primaryKey().default(sql`gen_random_ uuid()`), //gen_random_uuid() itu function bawaan postgreSQL
   name: text("name").notNull(), //nama kategori di jurnal antum
   userId: text("user_id"), //id user yg punya kategori di jurnal tsb
@@ -147,10 +155,18 @@ export const noteRelations = relations(notes,({one})=>({
 
 
 
+
 // ekspor skema user u/ fitur hafalan quran
 export type User = typeof user.$inferSelect //tp const hrs sama ky disini
 // ekspor skema u/ fitur session, verifikasi email, serta lupa password
-export const schema = {user,session,account,verification} 
+// export type InsertNote u/ tipe data u/ insert ke tabel notes
+// export type Note u/ tipe data u/ select dari tabel notes
+// ekspor skema u/ fitur login via google, github, password email, dll
+export type InsertNote = typeof notes.$inferInsert
+export type Note = typeof notes.$inferSelect
+export type InsertNotebook = typeof notebooks.$inferInsert
+export type Notebook = typeof notebooks.$inferSelect & {notes: Note[]}
+export const schema = {user,session,account,verification,notebooks,notes,notebookRelations,noteRelations} 
 
 /*
 betulin fitur password di user-form

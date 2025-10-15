@@ -1,4 +1,19 @@
 linting:
     npm install --save-dev eslint @typescript-eslint/eslint-plugin eslint-plugin-unused-imports
 
-kalau mau tambah fitur di aplikasi 
+flow pembuatan aplikasi:
+    -menentukan data apa saja yg kita akan butuhkan di aplikasi tersebut:
+        misalnya: 
+        data / tabel user isinya: id, email, username, verify/belum, hafalan brp
+        data / tabel jurnal isinya: id pemilik berdasarkan username 
+        data / tabel catatan isinya: id jurnal yg menjadi induknya
+        ditentukan tipe datanya & export agar bisa digunakan
+    -membuat api u/ memproses data yg sudah kita tentukan di schema tipe datanya ke database
+        misalnya:
+        get alluser u/ mendapatkan informasi seluruh user 
+        create user u/ menambahkan user ke db 
+        update user u/ mengupdate informasi user ke db
+        delete user u/ menghapus informasi user dari db 
+        api paling umum yg dibuat adalah crud u/ tiap tabel, tergantung kebutuhan
+    
+

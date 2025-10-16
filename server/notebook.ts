@@ -3,6 +3,7 @@
 import { db } from "@/db/drizzle"
 import { InsertNotebook, notebooks } from "@/db/schema"
 import { auth } from "@/lib/auth"
+import { eq } from "drizzle-orm"
 import { headers } from "next/headers"
 
 // fungsinya u/ menjalankan API di server 
@@ -21,6 +22,7 @@ export const createNotebook = async(values:InsertNotebook)=>{
     }
 }
 
+// function API dibawah ini g pakai parameter, krn dia hanya butuh tau siapa user yg lg login, lalu dia akan menampilkan semua notebook milik si user tsb, beda halnya dgn createNotebook yg butuh banyak values utk diinsert ke db
 export const getNotebooks = async()=>{
     try {
         const session = await auth.api.getSession({
@@ -30,12 +32,35 @@ export const getNotebooks = async()=>{
         if(!userId){
             return {success:false, message:"anda belum login"}
         }
-
-        // const notebooksByUser = await db.query.notebooks.findMany({
-
-        // }) 
-
+        const notebooksByUser = await db.query.notebooks.findMany({
+            where: eq(notebooks.userId, userId),
+            with: {
+                notebook: true //ana cek nanti apakah notebook / notes
+                // notes: true
+            }
+        })
+        return {success:true, notebooks: notebooksByUser}
     } catch (error) {
-        
+        return { success: false, message: "Error fetching notebooks" }
+    }
+}
+
+// function API utk mengupdate data notebook, dia butuh id notebook yg mau diupdate, dan values apa yg mau diupdate
+export const updateNotebook = async(id:string, values:Partial<InsertNotebook>)=>{
+    try {
+        await db.update(notebooks).set(values).where(eq(notebooks.id, id))
+        return {success:true,message:"Notebook updated successfully"}
+    } catch (error) {
+        return {success:false,message:"qoddarullah error update notebook"}
+    }
+}
+
+// function API utk menghapus data notebook, dia butuh id notebook yg mau dihapus
+export const deleteNotebook = async(id:string)=>{
+    try {
+        await db.delete(notebooks).where(eq(notebooks.id, id))
+        return {success:true,message:"Notebook deleted successfully"}
+    } catch (error) {
+        return {success:false,message:"astaghfirullah error delete notebook"}
     }
 }

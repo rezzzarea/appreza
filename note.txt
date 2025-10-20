@@ -15,5 +15,10 @@ flow pembuatan aplikasi:
         update user u/ mengupdate informasi user ke db
         delete user u/ menghapus informasi user dari db 
         api paling umum yg dibuat adalah crud u/ tiap tabel, tergantung kebutuhan
-    
+
+##################################################################
+
+ide fitur = gmn agar owner website bs melihat jurnal dari setiap pengguna,
+    bisa jadi nanti ada card yg beda, kalau yg punya owner pembuat nya keliatan di keterangan / card jurnal nya 
+
 

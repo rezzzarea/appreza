@@ -1,7 +1,7 @@
 "use server"
 
 import { db } from "@/db/drizzle"
-import { InsertNote, notebooks, notes } from "@/db/schema"
+import { InsertNote, notes } from "@/db/schema"
 import { auth } from "@/lib/auth"
 import { eq } from "drizzle-orm"
 import { headers } from "next/headers"

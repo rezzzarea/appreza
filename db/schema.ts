@@ -108,7 +108,7 @@ export const notebooks = pgTable("notebooks", {
       // role auditor/akuntan yg bs liat data org lain tp gabisa ngedit, misal akuntan bs liat data keuangan perusahaan tp gabisa ngedit
       // user guru/supervisor, user orang tua yg hanya bisa melihat saja. dll
       // membuat tabel a/ momen u/ menentukan data apa saja, dan sedetil apa informasi yg kita inginkan dari tabel tersebut mulai dari id nya, nama nya mungkin, apakah tabel ini akan berkaitan dg tabel lain, apakah tabel ini akan diakses oleh user tertentu saja, dll
-  id: text("id").primaryKey().default(sql`gen_random_ uuid()`), //gen_random_uuid() itu function bawaan postgreSQL
+  id: text("id").primaryKey().default(sql`gen_random_uuid()`), //gen_random_uuid() itu function bawaan postgreSQL
   name: text("name").notNull(), //nama kategori di jurnal antum
   userId: text("user_id"), //id user yg punya kategori di jurnal tsb
   createdAt: timestamp("created_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),

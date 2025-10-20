@@ -18,7 +18,8 @@ flow pembuatan aplikasi:
 
 ##################################################################
 
-ide fitur = gmn agar owner website bs melihat jurnal dari setiap pengguna,
+ide fitur:
+    -gmn agar owner website bs melihat jurnal dari setiap pengguna,
     bisa jadi nanti ada card yg beda, kalau yg punya owner pembuat nya keliatan di keterangan / card jurnal nya 
-
+    -gmn ketika update schema di drizzle gaperlu diapus semua
 

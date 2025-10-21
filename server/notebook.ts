@@ -13,8 +13,12 @@ wajib ingat setiapkali buat function di ts, misal disini kita mau nambah data no
 pertama: tipe data di parameter function nya:
     yaitu adalah tipe data InsertNotebook yg mana ia akan berpatokan kepada tipe data di notebooks sebagaimana tertulis di schema supaya typescript tau tipe data apa yg harus kita olah didalam function createNotebook ini
 */
+// ketika buat api  
 export const createNotebook = async(values:InsertNotebook)=>{
     try {
+        // api dibawah ini menambahkan data sesuai schema
+            // yg default akan terisi sesuai schema 
+            // yg dari user akan terisi dari form
         await db.insert(notebooks).values(values)
         return {success:true,message:"Notebook created successfully"}
     } catch (error) {

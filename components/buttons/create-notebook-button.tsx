@@ -54,10 +54,12 @@ export default function CreateNotebookButton() {
       // ✅ This will be type-safe and validated.
       // console.log(values)
       try {
-          setIsLoading(true)
+          // ini state yg mbuat ketika kita klik tombol submit tulisan di tombolnya berubah jd icon loading
+          setIsLoading(true) 
+          // cara u/ mendapatkan userId berdasarkan siapa yg udh login
           const userId = (await authClient.getSession()).data?.user.id
           if (!userId){
-              toast.error("you must be logged in to create a notebook")
+              toast.error("silahkan login terlebih dahulu untuk membuat jurnal")
               return
           }
           const response = await createNotebook({
@@ -65,16 +67,24 @@ export default function CreateNotebookButton() {
               userId,
           })
           if (response.success){
+              // menghapus form input agar menjadi kosong
               form.reset()
-              toast.success("notebook created successfully")
+              // menampilkan pesan dg ui sonner
+              toast.success("jurnal telah terbuat alhamdulillah")
+              // refresh halaman
               router.refresh()
+              // menutup dialog dg state false
               setIsOpen(false)
           } else {
+              // menampilkan pesan error dg ui sonner
               toast.error(response.message)
           }
       } catch (error) {
+          // menampilkan pesan error dg ui sonner
           toast.error("failed to create notebook")  
+          console.log(error)
       } finally {
+          // membuat icon loading yg berputar kembali menjadi tulisan karena proses ny sudah selesai
           setIsLoading(false)
       }
   }

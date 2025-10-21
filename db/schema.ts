@@ -89,6 +89,7 @@ export const verification = pgTable("verification", {
   // 1 notebook itu isinya banyak halaman, nah halaman itu adalah notes
 export const notebooks = pgTable("notebooks", {
   // struktur skema 
+    // ketika ada yg default di ujung akhir kolom skema db itu berarti datanya akan terisi secara otomatis
     // id / tulisan yg warna biru itu adalah nama variabel yg akan kita pakai di aplikasi kita
     // "id" yg diantara tanda kutip itu adalah nama kolom yg akan muncul database kita (neon)
     // setelah titik dua (:) ada tulisan text/integer/boolean/timestamp itu adalah tipe data dari kolom tsb

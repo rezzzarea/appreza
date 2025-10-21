@@ -22,4 +22,17 @@ ide fitur:
     -gmn agar owner website bs melihat jurnal dari setiap pengguna,
     bisa jadi nanti ada card yg beda, kalau yg punya owner pembuat nya keliatan di keterangan / card jurnal nya 
     -gmn ketika update schema di drizzle gaperlu diapus semua
+    -gmn cath error spy error msg ny bs nnt cek dr try
+
+#####################################################################
+
+0. fitur yg dimauin apa aja:
+    misal: jurnal, didalamnya ada lembar" catatannya, ada nama khusus u/ tiap nama jurnal dan lembar" catatannya
+1. schema: struktur data
+2. api: proses bagaimana data itu diolah bertambah berkurang diupdate dst
+    misal: apakah data jurnal dapat bertambah dihapus diedit dst
+3. form: form kita butuhkan untuk mengolah data dari pengguna aplikasi, wajib pahami setup form u/ aplikasi dan cara menyempilkan API sesuai form nya 
+        a. setup import dan validasinya / data apa yg nanti akan masuk ke db sesuai dengan nama kolom dari tabel form input yg wajib diisi user secara custom, spt nama, desc, dst.
+        b. setup router, state open, state loading, defaultValue, dan try-catch di onSubmit u/ nyempilin api sesuai perintah yg kita mau, terutama masukin data" yg GABUTUH bantuan user, dan di schema tidak default spt userId
+
 

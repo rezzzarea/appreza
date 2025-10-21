@@ -138,7 +138,7 @@ export const notes = pgTable("notes", {
   // maksudnya disini a/ notebooks yg ada disini adalah kategori jurnal, dan user itu adalah pemilik dari kategori jurnal tsb
   // jg fungsi relations disini a/ menyatakan bahwa 1 kategori jurnal itu punya beberapa halaman note dan hanya punya 1 user / pemilik kategori sesuai dengan userId yg ada di tabel notebooks yg mana userId itu telah tersangkut dengan userId dg foreign key yg merujuk ke tabel user
 export const notebookRelations = relations(notebooks,({one,many})=>({
-  notebook: many(notes),
+  notes: many(notes),
   user: one(user,{
     fields:[notebooks.userId],
     references:[user.id]

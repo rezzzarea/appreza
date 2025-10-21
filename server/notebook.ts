@@ -39,8 +39,8 @@ export const getNotebooks = async()=>{
         const notebooksByUser = await db.query.notebooks.findMany({
             where: eq(notebooks.userId, userId),
             with: {
-                notebook: true //ana cek nanti apakah notebook / notes
-                // notes: true
+                // notebook: true //ana cek nanti apakah notebook / notes
+                notes: true
             }
         })
         return {success:true, notebooks: notebooksByUser}

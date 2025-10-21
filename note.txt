@@ -34,5 +34,6 @@ ide fitur:
 3. form: form kita butuhkan untuk mengolah data dari pengguna aplikasi, wajib pahami setup form u/ aplikasi dan cara menyempilkan API sesuai form nya 
         a. setup import dan validasinya / data apa yg nanti akan masuk ke db sesuai dengan nama kolom dari tabel form input yg wajib diisi user secara custom, spt nama, desc, dst.
         b. setup router, state open, state loading, defaultValue, dan try-catch di onSubmit u/ nyempilin api sesuai perintah yg kita mau, terutama masukin data" yg GABUTUH bantuan user, dan di schema tidak default spt userId
+        c. setup form, update name di form field nya sesuai kolom di skema db, tambahkan atribut di button submit agar state dr setup kedua bs kita pakai
 
 

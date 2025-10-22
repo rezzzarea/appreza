@@ -25,7 +25,7 @@ export default async function UsersTable(){
     const dataQuran = await fetchDataQuran() //mendapatkan data dari api quran ke table
     const pencariNamaSurat = (nomorSurat:number) => { //fungsi yg digunakan u/ mengolah data quran berdasarkan 
       if (nomorSurat === 0){
-        return "qodarullah datanya kosong"
+        return "qoddarullah datanya kosong"
       }
       const namaSurat = dataQuran.find((nomerSuratDariAPI) => nomerSuratDariAPI.nomor === nomorSurat)
       return namaSurat ? namaSurat.namaLatin : 0

@@ -43,7 +43,7 @@ export default function NotebookCard({notebook}:NotebookCardProps) {
                 router.refresh()
             }
         } catch (error) {
-            toast.error("afwan jurnal gagal dihapus")
+            toast.error("afwan ada kendala saat menghapus jurnal")
         } finally {
             setIsDeleting(false)
         }

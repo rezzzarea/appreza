@@ -21,6 +21,7 @@ import { PageWrapper } from "@/components/wrappers/page-wrapper"
 import { auth } from "@/lib/auth"
 import { getNotebookById, getNotebooks } from "@/server/notebook"
 import { headers } from "next/headers"
+import { Note } from "@/db/schema"
 
 type Params = Promise<{notebookId:string}>
 
@@ -36,7 +37,7 @@ export default async function Page({params}:{params:Params}) {
       ]}
     >
       <h1>{notebook?.name}</h1>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {notebook?.notes?.map((note)=>(
           <NoteCard key={note.id} note={note}/>
         ))}

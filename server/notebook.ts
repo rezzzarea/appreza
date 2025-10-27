@@ -49,6 +49,21 @@ export const getNotebooks = async()=>{
     }
 }
 
+export const getNotebookById = async(id:string)=>{
+    try {
+        const notebook = await db.query.notebooks.findFirst({
+            where: eq(notebooks.id, id),
+            with: {
+                notes: true
+            }
+        })
+        return {success:true, notebook}
+    } catch (error) {
+        return { success: false, message: "qoddarullah notebook tdk dapat tertampilkan" }
+    }
+}
+
+
 // function API utk mengupdate data notebook, dia butuh id notebook yg mau diupdate, dan values apa yg mau diupdate
 export const updateNotebook = async(id:string, values:Partial<InsertNotebook>)=>{
     try {

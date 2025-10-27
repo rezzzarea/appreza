@@ -169,7 +169,7 @@ export default function RichTextEditor ({content,noteId}:RichTextEditorProps) {
             console.log("content updated:",content)
             updateNote(noteId,{content})
         }
-    }
+    },
     content,
   })
   return (

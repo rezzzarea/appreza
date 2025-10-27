@@ -23,7 +23,7 @@ gabisa dari terminal, karena kita pakai databse online gratisan
 */
 
 import { relations, sql } from "drizzle-orm";
-import { uuid, integer, text, boolean, pgTable, timestamp } from "drizzle-orm/pg-core";
+import { uuid, integer, text, boolean, pgTable, timestamp, jsonb } from "drizzle-orm/pg-core";
 export const user = pgTable("user", { //users = nama sql table kita di neon postgreSQL const nya bebas
   id: text("id").primaryKey(),
   name: text("name"),
@@ -123,7 +123,7 @@ export const notebooks = pgTable("notebooks", {
 export const notes = pgTable("notes", {
   id: text("id").primaryKey().default(sql`gen_random_uuid()`),
   title: text("title").notNull(), //judul halaman
-  content: text("content").notNull(), //isi halaman
+  content: jsonb("content").notNull(), //isi halaman
   notebookId: text("notebook_id").references(() => notebooks.id, { onDelete: "cascade" }), //id kategori jurnal yg punya halaman tsb
   createdAt: timestamp("created_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
   updatedAt: timestamp("updated_at").$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),

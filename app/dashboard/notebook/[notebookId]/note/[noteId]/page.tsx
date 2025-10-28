@@ -24,6 +24,7 @@ import { headers } from "next/headers"
 import { Note } from "@/db/schema"
 import { getNoteById } from "@/server/notes"
 import RichTextEditor from "@/components/tiptap/rich-text-editor"
+import type { JSONContent } from "@tiptap/react"
 
 type Params = Promise<{noteId:string}>
 

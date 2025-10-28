@@ -1,33 +1,3 @@
-/* Control group styles */
-.control-group {
-  margin-bottom: 1rem;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.button-group button {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  background: white;
-  cursor: pointer;
-  border-radius: 0.25rem;
-}
-
-.button-group button:hover {
-  background: #f0f0f0;
-}
-
-.button-group button.is-active {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
 /* Basic editor styles */
 .tiptap {
   :first-child {

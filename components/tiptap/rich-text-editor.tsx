@@ -1,3 +1,5 @@
+"use client"
+
 import { updateNote } from '@/server/notes'
 import './styles.scss'
 
@@ -6,7 +8,6 @@ import type { Editor, JSONContent } from '@tiptap/react'
 import { EditorContent, useEditor, useEditorState } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
-
 
 const extensions = [TextStyleKit, StarterKit]
 

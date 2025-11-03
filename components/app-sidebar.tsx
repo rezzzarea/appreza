@@ -23,6 +23,7 @@ import {
 import { get } from "http"
 import { getNotebooks } from "@/server/notebook"
 import Image from "next/image"
+import SidebarData from "@/components/sidebar-data"
 
 // This is sample data.
 
@@ -60,7 +61,7 @@ export async function AppSidebar({ ...props }: React.ComponentProps<typeof Sideb
         <SearchForm />
       </SidebarHeader>
       <SidebarContent className="gap-0">
-
+        <SidebarData data={data} />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

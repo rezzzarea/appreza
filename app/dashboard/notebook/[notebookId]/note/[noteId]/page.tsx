@@ -1,27 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import CreateNotebookButton from "@/components/buttons/create-notebook-button"
-import NoteCard from "@/components/cards/note-card"
-import NotebookCard from "@/components/cards/notebook-card"
-import LogOut from "@/components/logout"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
 import { PageWrapper } from "@/components/wrappers/page-wrapper"
-import { auth } from "@/lib/auth"
-import { getNotebookById, getNotebooks } from "@/server/notebook"
-import { headers } from "next/headers"
-import { Note } from "@/db/schema"
 import { getNoteById } from "@/server/notes"
 import RichTextEditor from "@/components/tiptap/rich-text-editor"
 import type { JSONContent } from "@tiptap/react"

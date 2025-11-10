@@ -1,9 +1,7 @@
 "use client"
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -44,6 +42,7 @@ export default function NotebookCard({notebook}:NotebookCardProps) {
             }
         } catch (error) {
             toast.error("afwan ada kendala saat menghapus jurnal")
+            console.log(error)
         } finally {
             setIsDeleting(false)
         }

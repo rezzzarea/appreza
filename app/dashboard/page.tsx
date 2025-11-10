@@ -1,21 +1,5 @@
-import { AppSidebar } from "@/components/app-sidebar"
 import CreateNotebookButton from "@/components/buttons/create-notebook-button"
 import NotebookCard from "@/components/cards/notebook-card"
-import LogOut from "@/components/logout"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
 import { PageWrapper } from "@/components/wrappers/page-wrapper"
 import { auth } from "@/lib/auth"
 import { getNotebooks } from "@/server/notebook"

@@ -28,7 +28,6 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { authClient } from "@/lib/auth-client"
 import { toast } from "sonner"
-import { createNotebook } from "@/server/notebook"
 import { Loader2 } from "lucide-react"
 import { createNote } from "@/server/notes"
 const formSchema = z.object({
@@ -93,7 +92,7 @@ export default function CreateNoteButton({notebookId}:{notebookId:string}) {
   }
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {/* komponen Button kalau kita mau sempil didalam komponen shadcn misalnya dialog harus pembungkus Button nya ini dikasih atribut asChild agar tidak konflik*/}
       <DialogTrigger asChild>
         <Button>Create Note</Button>

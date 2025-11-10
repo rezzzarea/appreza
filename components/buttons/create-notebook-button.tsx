@@ -90,7 +90,7 @@ export default function CreateNotebookButton() {
   }
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {/* komponen Button kalau kita mau sempil didalam komponen shadcn misalnya dialog harus pembungkus Button nya ini dikasih atribut asChild agar tidak konflik*/}
       <DialogTrigger asChild>
         <Button>Create Journal</Button>

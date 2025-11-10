@@ -1,5 +1,4 @@
 import { AppSidebar } from "@/components/app-sidebar"
-import CreateNotebookButton from "@/components/buttons/create-notebook-button"
 import NoteCard from "@/components/cards/note-card"
 import NotebookCard from "@/components/cards/notebook-card"
 import LogOut from "@/components/logout"
@@ -22,6 +21,7 @@ import { auth } from "@/lib/auth"
 import { getNotebookById, getNotebooks } from "@/server/notebook"
 import { headers } from "next/headers"
 import { Note } from "@/db/schema"
+import CreateNoteButton from "@/components/buttons/create-note-button"
 
 type Params = Promise<{notebookId:string}>
 
@@ -37,6 +37,7 @@ export default async function Page({params}:{params:Params}) {
       ]}
     >
       <h1>{notebook?.name}</h1>
+      <CreateNoteButton notebookId={notebookId}/>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {notebook?.notes?.map((note)=>(
           <NoteCard key={note.id} note={note}/>

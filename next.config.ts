@@ -33,9 +33,10 @@ const nextConfig: NextConfig = {
         hostname: "html.tailus.io",
         protocol: "https",
       },
-      // {
-      //   hostname:"whyislam.org",
-      // },
+      {
+        hostname:"alt.tailus.io",
+        protocol: "https",
+      },
     ]
   }
 };

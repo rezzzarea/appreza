@@ -1,5 +1,6 @@
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
+import Image from 'next/image'
 
 export default function LogoCloud() {
     return (
@@ -14,23 +15,18 @@ export default function LogoCloud() {
                             speedOnHover={20}
                             speed={40}
                             gap={112}>
-                            <div className="flex">
-                                <img
-                                    className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                                    alt="Nvidia Logo"
-                                    height="20"
-                                    width="auto"
-                                />
-                                {/* <Image
-                                    className="mx-auto h-5 w-fit dark:invert"
-                                    src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                                    alt="Nvidia Logo"
-                                    height="20"
-                                    width={100} 
-                                /> */}
+                            <div className="flex items-center">
+                                <div className="relative h-5 w-auto">
+                                    <Image
+                                        className="mx-auto dark:invert"
+                                        src="https://html.tailus.io/blocks/customers/nvidia.svg"
+                                        alt="Nvidia Logo"
+                                        fill
+                                        unoptimized
+                                        style={{ objectFit: 'contain' }}
+                                    />
+                                </div>
                             </div>
-
                             <div className="flex">
                                 <img
                                     className="mx-auto h-4 w-fit dark:invert"

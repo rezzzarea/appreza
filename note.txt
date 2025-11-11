@@ -37,3 +37,7 @@ ide fitur:
         c. setup form, update name di form field nya sesuai kolom di skema db, tambahkan atribut di button submit agar state dr setup kedua bs kita pakai
 
 
+#########################################################################
+
+1. rapiin linting, sinkron dg web live
+2. atur nomor tlp dan email bisnis

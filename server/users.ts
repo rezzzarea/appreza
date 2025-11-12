@@ -4,6 +4,7 @@ import { User, user } from "@/db/schema"
 import { auth } from "@/lib/auth"
 import { error } from "console"
 import { eq } from "drizzle-orm"
+import { revalidatePath } from "next/cache"
 type TahfizhDataInput = {
     id:string
     username:string 
@@ -27,7 +28,7 @@ export async function getUsers() {
 export async function createUser(userData:Omit<User,"id"|"createdAt"|"updatedAt">) {
 */
 export async function createUser(userData:Omit<TahfizhDataInput,"id">) {
-    try{    
+    try{
         await db.insert(user).values({
             ...userData,
             id:crypto.randomUUID(),
@@ -37,6 +38,7 @@ export async function createUser(userData:Omit<TahfizhDataInput,"id">) {
             image:"",
             name:"",
         })
+        revalidatePath('/users')
     } catch (error){
         console.error(error)
         return{error:"pembuatan user baru gagal"}
@@ -56,8 +58,9 @@ export async function updateUser(userData:TahfizhDataInput) {
             password:userData.password,
             surat:userData.surat,
             ayat:userData.ayat,
-            updatedAt: new Date(), 
+            updatedAt: new Date(),
         }).where(eq(user.id,userData.id))
+        revalidatePath('/users')
     } catch (error){
         console.error(error)
         return{error:"pembuatan user baru gagal"}
@@ -68,6 +71,7 @@ export async function deleteUser(id:string) {
     try{
         // dr db table user di neon delete dimana id nya sama (equal dg id yg kita pilih)
         await db.delete(user).where(eq(user.id,id))
+        revalidatePath('/users')
     } catch (error){
         console.error(error)
         return{error:"penghapusan data user qadarullah tidak berhasil"}

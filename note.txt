@@ -41,3 +41,26 @@ ide fitur:
 
 1. rapiin linting, sinkron dg web live
 2. atur nomor tlp dan email bisnis
+
+#########################################################################
+
+portofolio showcase:
+
+penggunaan API = api berdasarkan wilayah, zona waktu, suhu, mata uang, geo lokasi
+crud fundamental & API = aplikasi hafalan quran = create, read (get all data santri), update data hafalan, delete data hafalan
+productive app - journal (dynamic routing, dashboard, data filtering, breadcrumb, text-editor),
+landing pages, 
+email bisnis,
+e-commerce, 
+    subscription: 
+        langganan fitur aplikasi jurnal (misal)
+    jual produk digital: 
+        akses u/ nonton video tutor programming w/ biyu / programming w/ faiq 
+        jual pdf jurus jitu jadi programmer di rumah aja / rahasia setup ergonomis anti encok dijamin sehat
+    currency based:
+        isi saldo faiq-pay / biyu-pay , misal topup 100k setara 100k di dashboard 
+        atau coin based = misal isi 50k setara 50 coins
+        dari saldo / currency coin nanti beli produk digital di platform, spt timezone / fun world tp di web
+    link payment u/ dp jasa freelance 
+
+

@@ -50,7 +50,9 @@ export async function AppSidebar({ ...props }: React.ComponentProps<typeof Sideb
         </Suspense>
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        <SidebarData data={data} />
+        <Suspense>
+          <SidebarData data={data} />
+        </Suspense>
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

@@ -61,3 +61,17 @@ linting:
     build test: npm run build
 
 
+###########################################################################
+
+liat repo list dr gh cli: gh repo list
+
+revert repo:
+    tarik repo yg ori
+git fetch origin
+    reset ke local repo 
+git reset --hard origin/main
+    bersihin untracked file sm directory gajelas di local
+git clean -fd
+    kalau emg bener" mau apus coding / file / yg untracked
+
+###########################################################################

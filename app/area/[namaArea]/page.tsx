@@ -86,7 +86,12 @@ export default async function AreaPage({params}:{params:Promise<{areaId:string}>
     const cuaca = await fetchCuaca(area.lat, area.lon)
     const waktu = await fetchWaktu(area.lat, area.lon)
     const mataUang = await fetchMataUang(area.country_code)
-    const kurs = await fetchKurs(mataUang.code)
+    let kurs = null
+    try {
+        kurs = await fetchKurs(mataUang.code)
+    } catch (error) {
+        console.error('Error fetching exchange rate:', error)
+    }
     return (
       <main>
         <h1>Latitude: {area.lat}</h1>
@@ -98,7 +103,11 @@ export default async function AreaPage({params}:{params:Promise<{areaId:string}>
         <h1>Jam: {waktu.time}</h1>
         <h1>Hari: {waktu.dayOfWeek}</h1>
         <h1>Mata Uang: {mataUang.name}</h1>
-        <h1>Kurs ke indo: {mataUang.code} = {kurs.rate.toLocaleString('id-ID')}</h1>
+        {kurs ? (
+            <h1>Kurs ke indo: {mataUang.code} = {kurs.rate.toLocaleString('id-ID')}</h1>
+        ) : (
+            <h1>Kurs tidak tersedia untuk {mataUang.code}</h1>
+        )}
       </main>
     );
 }

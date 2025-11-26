@@ -12,6 +12,7 @@ const resend = new Resend(process.env.RESEND_API_KEY as string)
  
 // setup fitur di better auth
 export const auth = betterAuth({
+    baseURL: process.env.BETTER_AUTH_URL,
     // fitur sinkronisasi dengan database drizzle
     database: drizzleAdapter(db, {
         provider: "pg", // or "mysql", "sqlite"

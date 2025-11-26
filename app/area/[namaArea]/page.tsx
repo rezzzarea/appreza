@@ -1,14 +1,21 @@
 
 async function fetchAreaById(areaId:string) {
+    console.log('Fetching area for:', areaId)
     const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?q=${areaId}&format=json&addressdetails=1`,
+      `https://nominatim.openstreetmap.org/search?q=${areaId}&format=json&addressdetails=1&limit=1`,
       {
         headers: {
           "Accept-Language": "en", //biar gk bahasa jepang, dsb
         },
+        cache: 'no-store',
       }
     );
     const areaData = await response.json()
+    console.log('Area data length:', areaData.length)
+    console.log('First result:', areaData[0])
+    if (!areaData || areaData.length === 0) {
+        throw new Error('Area not found')
+    }
     return {
         lat:areaData[0].lat,
         lon:areaData[0].lon,
@@ -20,7 +27,8 @@ async function fetchAreaById(areaId:string) {
 
 async function fetchCuaca(lat:string, lon:string) {
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`,
+      { cache: 'no-store' }
     );
     const cuacaData = await response.json()
     return cuacaData.current_weather
@@ -28,7 +36,8 @@ async function fetchCuaca(lat:string, lon:string) {
 
 async function fetchWaktu(lat:string, lon:string) {
     const response = await fetch(
-      `https://timeapi.io/api/Time/current/coordinate?latitude=${lat}&longitude=${lon}`
+      `https://timeapi.io/api/Time/current/coordinate?latitude=${lat}&longitude=${lon}`,
+      { cache: 'no-store' }
     );
     const waktuData = await response.json()
     return waktuData
@@ -36,7 +45,8 @@ async function fetchWaktu(lat:string, lon:string) {
 
 async function fetchMataUang(countryCode:string) {
     const response = await fetch(
-      `https://restcountries.com/v3.1/alpha/${countryCode}`
+      `https://restcountries.com/v3.1/alpha/${countryCode}`,
+      { cache: 'no-store' }
     );
     const mataUangData = await response.json()
 
@@ -66,7 +76,7 @@ async function fetchKurs(currencyCode: string) {
         return { rate: 1, base: "IDR" };
     }
 
-    const response = await fetch(`https://api.frankfurter.app/latest?from=${currencyCode}&to=IDR`);
+    const response = await fetch(`https://api.frankfurter.app/latest?from=${currencyCode}&to=IDR`, { cache: 'no-store' });
     const kursData = await response.json();
 
     if (!kursData.rates || typeof kursData.rates.IDR !== "number") {

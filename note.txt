@@ -44,6 +44,10 @@ ide fitur:
 
 #########################################################################
 
+
+ini pakai oauth google yg tahfizh app
+
+
 portofolio showcase:
 
 penggunaan API = api berdasarkan wilayah, zona waktu, suhu, mata uang, geo lokasi
@@ -62,5 +66,6 @@ e-commerce,
         atau coin based = misal isi 50k setara 50 coins
         dari saldo / currency coin nanti beli produk digital di platform, spt timezone / fun world tp di web
     link payment u/ dp jasa freelance 
+
 
 

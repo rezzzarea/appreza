@@ -4,6 +4,7 @@ import { PageWrapper } from "@/components/wrappers/page-wrapper"
 import { auth } from "@/lib/auth"
 import { getNotebooks } from "@/server/notebook"
 import { headers } from "next/headers"
+import { redirect } from "next/navigation"
 import { Suspense } from "react"
 
 export default async function Page() {
@@ -11,6 +12,10 @@ export default async function Page() {
   const session = await auth.api.getSession({
     headers: await headers()
   })
+  // error handling u/ lempar kalau g ada session
+  if (!session) {
+    redirect("/");
+  }
   const user = session?.user
   // memanggil function API getNotebooks utk menampilkan semua notebook milik user yg lg login 
   const notebooks = await getNotebooks()

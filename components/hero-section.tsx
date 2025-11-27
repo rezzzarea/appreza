@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { ModeToggle } from './buttons/mode-toggle'
+import LogOut from './logout'
 
 const menuItems = [
     { name: 'Features', href: '#' },
@@ -14,7 +15,7 @@ const menuItems = [
     { name: 'About', href: '#' },
 ]
 
-export default function HeroSection() {
+export default function HeroSection({ session }: { session: any }) {
     const [menuState, setMenuState] = useState(false)
     return (
         <>
@@ -76,22 +77,28 @@ export default function HeroSection() {
                                 </div>
 
                                 <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        size="sm">
-                                        <Link href="/signup">
-                                            <span>Sign Up</span>
-                                        </Link>
-                                    </Button>
+                                    {session ? (
+                                        <LogOut />
+                                    ) : (
+                                        <>
+                                            <Button
+                                                asChild
+                                                variant="outline"
+                                                size="sm">
+                                                <Link href="/signup">
+                                                    <span>Sign Up</span>
+                                                </Link>
+                                            </Button>
 
-                                    <Button
-                                        asChild
-                                        size="sm">
-                                        <Link href="/login">
-                                            <span>Login</span>
-                                        </Link>
-                                    </Button>
+                                            <Button
+                                                asChild
+                                                size="sm">
+                                                <Link href="/login">
+                                                    <span>Login</span>
+                                                </Link>
+                                            </Button>
+                                        </>
+                                    )}
 
                                     <ModeToggle />
                                 </div>

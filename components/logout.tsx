@@ -22,7 +22,7 @@ export default function LogOut() {
         }
     }
     return (
-    <Button variant={'outline'} onClick={handleLogout} disabled={isLoading}>
+    <Button variant={'destructive'} onClick={handleLogout} disabled={isLoading}>
         {/* versi lawas 1.0 tanpa sensasi loading */}
         {/* Logout <LogOutIcon className='size-4' /> */}
         {isLoading ? (<Loader2 className="size-4 animate-spin" />) : 

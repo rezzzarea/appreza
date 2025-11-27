@@ -13,12 +13,17 @@ import PricingComparator from '@/components/pricing-comparator'
 import StatsSection from '@/components/stats'
 import TeamSection from '@/components/team'
 import WallOfLoveSection from '@/components/testimonials'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
   return (
     <div>
-      <HeroSection />
+      <HeroSection session={session} />
       <LogoCloud />
       {/* <FeaturesSection /> */}
       <Features />
@@ -34,10 +39,6 @@ export default function page() {
       <FAQsFour />
       <CallToAction />
       <FooterSection />
-
-      
-
-
     </div>
   )
 }

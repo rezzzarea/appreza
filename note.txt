@@ -46,6 +46,7 @@ ide fitur:
 
 
 ini pakai oauth google yg tahfizh app
+otw nuker di main page logout sm login kl ada session
 
 
 portofolio showcase:

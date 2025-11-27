@@ -15,7 +15,29 @@ const menuItems = [
     { name: 'About', href: '#' },
 ]
 
-export default function HeroSection({ session }: { session: any }) {
+type SessionType = {
+  user: {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    email: string;
+    emailVerified: boolean;
+    name: string;
+    image?: string | null;
+  };
+  session: {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    userId: string;
+    expiresAt: Date;
+    token: string;
+    ipAddress?: string | null;
+    userAgent?: string | null;
+  };
+} | null;
+
+export default function HeroSection({ session }: { session: SessionType }) {
     const [menuState, setMenuState] = useState(false)
     return (
         <>
@@ -77,6 +99,7 @@ export default function HeroSection({ session }: { session: any }) {
                                 </div>
 
                                 <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
+                                    {/* ternary operator u/ validasi session */}
                                     {session ? (
                                         <LogOut />
                                     ) : (
@@ -89,17 +112,15 @@ export default function HeroSection({ session }: { session: any }) {
                                                     <span>Sign Up</span>
                                                 </Link>
                                             </Button>
-
                                             <Button
                                                 asChild
                                                 size="sm">
                                                 <Link href="/login">
-                                                    <span>Login</span>
+                                                    {/* <span>Login</span> */}
                                                 </Link>
                                             </Button>
                                         </>
                                     )}
-
                                     <ModeToggle />
                                 </div>
                             </div>

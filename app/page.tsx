@@ -13,11 +13,14 @@ import PricingComparator from '@/components/pricing-comparator'
 import StatsSection from '@/components/stats'
 import TeamSection from '@/components/team'
 import WallOfLoveSection from '@/components/testimonials'
+// import library u/ get session
 import { auth } from '@/lib/auth'
 import { headers } from 'next/headers'
 import React from 'react'
 
+// asinkron ketika ada sintaks await 
 export default async function page() {
+  // get session sesuai pengguna yg telah login
   const session = await auth.api.getSession({
     headers: await headers()
   })

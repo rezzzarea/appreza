@@ -26,6 +26,7 @@ export default async function page() {
   })
   return (
     <div>
+      {/* mengirimkan data session ke komponen HeroSection krn section ini isinya bersifat opsional  maka kita butuh parameter yg menentukan isi tampilan dari section nya */}
       <HeroSection session={session} />
       <LogoCloud />
       {/* <FeaturesSection /> */}

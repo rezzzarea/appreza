@@ -116,7 +116,7 @@ export default function HeroSection({ session }: { session: SessionType }) {
                                                 asChild
                                                 size="sm">
                                                 <Link href="/login">
-                                                    {/* <span>Login</span> */}
+                                                    <span>Login</span>
                                                 </Link>
                                             </Button>
                                         </>

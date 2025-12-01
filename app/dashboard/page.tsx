@@ -1,11 +1,11 @@
 import CreateNotebookButton from "@/components/buttons/create-notebook-button"
 import NotebookCard from "@/components/cards/notebook-card"
 import { PageWrapper } from "@/components/wrappers/page-wrapper"
-import { auth } from "@/lib/auth"
 import { getNotebooks } from "@/server/notebook"
-import { headers } from "next/headers"
-import { redirect } from "next/navigation"
 import { Suspense } from "react"
+import { redirect } from "next/navigation"
+import { auth } from "@/lib/auth"
+import { headers } from "next/headers"
 
 export default async function Page() {
   // menampilkan email yg terhubung dg session berdasarkan data login
@@ -24,7 +24,8 @@ export default async function Page() {
   return (
     <Suspense>
       <PageWrapper breadcrumbs={[{label:"Dashboard",href:"/dashboard"}]}>
-        <h1>Bismillah, berikut dashboard dari user dengan email : {user?.email}</h1>
+        {/* <h1>Bismillah, berikut dashboard dari user dengan email : {user?.email}</h1> */}
+        <h1>Bismillah, berikut dashboard dari user " {user?.name} " dan email : {user?.email} </h1>
         <CreateNotebookButton />
         <div className="grid grid-cols-1 gap-4 md:grid-cols2 lg:grid-cols-3 xl:grid-cols-4">
           {notebooks.success && notebooks?.notebooks?.map((notebook)=>(

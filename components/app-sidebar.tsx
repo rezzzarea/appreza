@@ -11,6 +11,7 @@ import { getNotebooks } from "@/server/notebook"
 import Image from "next/image"
 import SidebarData from "@/components/sidebar-data"
 import { Suspense } from "react"
+import Link from "next/link"
 
 // This is sample data.
 
@@ -36,15 +37,17 @@ export async function AppSidebar({ ...props }: React.ComponentProps<typeof Sideb
           versions={data.versions}
           defaultVersion={data.versions[0]}
         /> */}
-        <div className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={32}
-            height={32}
-          />
-          <h1 className="font-medium text-xl tracking-wider">AppReza</h1>
-        </div>
+        <Link href="/">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={32}
+              height={32}
+            />
+            <h1 className="font-medium text-xl tracking-wider">AppReza</h1>
+          </div>
+        </Link>
         <Suspense>
           <SearchForm />
         </Suspense>

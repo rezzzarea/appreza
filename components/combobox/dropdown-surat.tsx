@@ -83,7 +83,7 @@ export default function DropdownSurat(
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="ketik nomor surat" />
+          <CommandInput placeholder="ketik nomor / nama surat" />
           <CommandList>
             <CommandEmpty>surat apa maksudnya?</CommandEmpty>
             <CommandGroup>

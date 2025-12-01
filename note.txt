@@ -45,9 +45,12 @@ ide fitur:
 #########################################################################
 
 
-ini pakai oauth google yg tahfizh app
-otw nuker di main page logout sm login kl ada session
+vv ini pakai oauth google yg tahfizh app 
+vv otw nuker di main page logout sm login kl ada session
+search surat dengan kata / keyword di pencarian
+merapikan halaman api area
 
+#########################################################################
 
 portofolio showcase:
 

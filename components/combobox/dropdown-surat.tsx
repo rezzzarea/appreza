@@ -89,11 +89,18 @@ export default function DropdownSurat(
             <CommandGroup>
               {quranData.map((isiFormattedQuran) => (
                 <CommandItem
+                  // key dropdown yg kita gunakan berdasarkan nomor surat
                   key={isiFormattedQuran.value}
-                  value={isiFormattedQuran.value}
+                  // value pencarian berdasarkan nomor surat (value) atau nama surat (label)
+                  value={`${isiFormattedQuran.value} ${isiFormattedQuran.label}`}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
-                    suratYgBerubah(currentValue)
+                    // currentValue = value yg dipilih (nomor surat)
+                    // split(' ') = memisahkan string berdasarkan spasi
+                    // [0] = mengambil index pertama dari array hasil split
+                    // contoh: "1 Al-Fatihah" => ["1", "Al-Fatihah"] => "1"
+                    const selectedValue = currentValue.split(' ')[0]
+                    setValue(selectedValue === value ? "" : selectedValue)
+                    suratYgBerubah(selectedValue)
                     setOpen(false)
                   }}
                 >

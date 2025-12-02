@@ -11,7 +11,7 @@ export async function fetchDataQuran():
         nomor:number
         namaLatin:string 
         jumlahAyat:number
-    }[]> // [] agar bila dipanggil fetching datanya 1 kali 
+    }[]> // [] agar bila dipanggil fetching datanya 1 kali sebagai array
 {
     const res = await fetch("https://equran.id/api/v2/surat")
     const json = await res.json()

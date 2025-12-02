@@ -71,5 +71,10 @@ e-commerce,
         dari saldo / currency coin nanti beli produk digital di platform, spt timezone / fun world tp di web
     link payment u/ dp jasa freelance 
 
+#########################################################################
+
+mapping object berdasarkan key dan value dengan API open source untuk menampilkan hasil pencarian dengan dropdown data berdasarkan nomor surat, atau nama surat agar dapat terpilih dalam form input
+
+#########################################################################
 
 

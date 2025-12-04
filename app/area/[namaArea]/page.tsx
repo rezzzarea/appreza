@@ -186,17 +186,19 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
     try {
         waktu = await fetchWaktu(area.lat, area.lon)
         if (waktu) {
-            const date = new Date(waktu.timestamp * 1000)
-            tanggal = date.getDate()
-            const hariIndex = date.getDay()
+            const utcDate = new Date(waktu.timestamp * 1000)
+            const localMillis = utcDate.getTime() + (waktu.gmtOffset * 1000)
+            const localDate = new Date(localMillis)
+            tanggal = localDate.getUTCDate()
+            const hariIndex = localDate.getUTCDay()
             const hariNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
             hari = hariNames[hariIndex]
             const bulanNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
-            bulan = bulanNames[date.getMonth()]
-            tahun = date.getFullYear()
-            jam = date.getHours()
-            menit = date.getMinutes()
-            detik = date.getSeconds()
+            bulan = bulanNames[localDate.getUTCMonth()]
+            tahun = localDate.getUTCFullYear()
+            jam = localDate.getUTCHours()
+            menit = localDate.getUTCMinutes()
+            detik = localDate.getUTCSeconds()
         }
     } catch (error) {
         console.error('Error fetching time:', error)

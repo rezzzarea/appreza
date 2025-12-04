@@ -26,6 +26,7 @@ async function fetchAreaById(areaId: string): Promise<AreaData> {
       {
         headers: {
           "Accept-Language": "en", //biar gk bahasa jepang, dsb
+          "User-Agent": "MutabaahApp/1.0",
         },
         cache: 'no-store',
       }

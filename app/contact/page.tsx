@@ -6,13 +6,15 @@ type Post = {
     body:string
 }
 export default async function Apaaja() {
-    console.log("dikirim dari halaman kontak, ini client / server component?")
+    // dbwh nyalain u/ tes dimatiin krn saat build muncul
+    // console.log("dikirim dari halaman kontak, ini client / server component?")
     // response = mentahan api dr db
     // await sintaks u/ 
     // fetch itu u/ narik mentahan ny aja, blm dlm bentuk json yg rapi
     const response = await fetch("https://jsonplaceholder.typicode.com/posts")
     const posts:Post[] = await response.json()
-    console.log(posts)
+    // dibawah ini u/ buktiin di console
+    // console.log(posts)
     return (
         <>
         {/* fragment itu tag tak bernama sama persis spt dif  */}

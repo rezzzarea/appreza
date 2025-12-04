@@ -25,7 +25,7 @@ export default async function Page() {
     <Suspense>
       <PageWrapper breadcrumbs={[{label:"Dashboard",href:"/dashboard"}]}>
         {/* <h1>Bismillah, berikut dashboard dari user dengan email : {user?.email}</h1> */}
-        <h1>Bismillah, berikut dashboard dari user " {user?.name} " dan email : {user?.email} </h1>
+        <h1>Bismillah, berikut dashboard dari user &quot; {user?.name} &quot; dan email : {user?.email} </h1>
         <CreateNotebookButton />
         <div className="grid grid-cols-1 gap-4 md:grid-cols2 lg:grid-cols-3 xl:grid-cols-4">
           {notebooks.success && notebooks?.notebooks?.map((notebook)=>(

@@ -98,7 +98,12 @@ type DataWaktu = {
 async function fetchWaktu(lat: string, lon: string): Promise<DataWaktu> {
     const response = await fetch(
       `https://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.TIMEZONE_DB_API_KEY}&format=json&by=position&lat=${lat}&lng=${lon}`,
-      { cache: 'no-store' }
+      {
+        headers: {
+          "User-Agent": "MutabaahApp/1.0",
+        },
+        cache: 'no-store'
+      }
     );
     // error hendling API
     if (!response.ok) {
@@ -187,19 +192,24 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
     try {
         waktu = await fetchWaktu(area.lat, area.lon)
         if (waktu) {
-            const utcDate = new Date(waktu.timestamp * 1000)
-            const localMillis = utcDate.getTime() + (waktu.gmtOffset * 1000)
-            const localDate = new Date(localMillis)
-            tanggal = localDate.getUTCDate()
-            const hariIndex = localDate.getUTCDay()
-            const hariNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
-            hari = hariNames[hariIndex]
-            const bulanNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
-            bulan = bulanNames[localDate.getUTCMonth()]
-            tahun = localDate.getUTCFullYear()
-            jam = localDate.getUTCHours()
-            menit = localDate.getUTCMinutes()
-            detik = localDate.getUTCSeconds()
+            const formatted = waktu.formatted;
+            const [dateStr, timeStr] = formatted.split(' ');
+            const [year, month, day] = dateStr.split('-').map(Number);
+            const [hour, minute, second] = timeStr.split(':').map(Number);
+            tahun = year;
+            const bulanNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            bulan = bulanNames[month - 1];
+            tanggal = day;
+            jam = hour;
+            menit = minute;
+            detik = second;
+            // For hari
+            const utcDate = new Date(waktu.timestamp * 1000);
+            const localMillis = utcDate.getTime() + (waktu.gmtOffset * 1000);
+            const localDate = new Date(localMillis);
+            const hariIndex = localDate.getUTCDay();
+            const hariNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            hari = hariNames[hariIndex];
         }
     } catch (error) {
         console.error('Error fetching time:', error)

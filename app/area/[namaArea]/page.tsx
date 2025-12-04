@@ -91,12 +91,15 @@ type DataWaktu = {
     timestamp: number;
     formatted: string;
 }
-
+// fetching data zona waktu API berdasarkan garis lintang dan bujur
+// lat = garis lintang
+// lon = garis bujur
 async function fetchWaktu(lat: string, lon: string): Promise<DataWaktu> {
     const response = await fetch(
       `https://api.timezonedb.com/v2.1/get-time-zone?key=${process.env.TIMEZONE_DB_API_KEY}&format=json&by=position&lat=${lat}&lng=${lon}`,
       { cache: 'no-store' }
     );
+    // error hendling API
     if (!response.ok) {
         throw new Error(`Timezonedb API error: ${response.status} ${response.statusText}`)
     }
@@ -173,8 +176,28 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
     const area = await fetchAreaById(areaId)
     const cuaca = await fetchCuaca(area.lat, area.lon)
     let waktu = null
+    let tanggal = null
+    let hari = null
+    let bulan = null
+    let tahun = null
+    let jam = null
+    let menit = null
+    let detik = null
     try {
         waktu = await fetchWaktu(area.lat, area.lon)
+        if (waktu) {
+            const date = new Date(waktu.timestamp * 1000)
+            tanggal = date.getDate()
+            const hariIndex = date.getDay()
+            const hariNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+            hari = hariNames[hariIndex]
+            const bulanNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+            bulan = bulanNames[date.getMonth()]
+            tahun = date.getFullYear()
+            jam = date.getHours()
+            menit = date.getMinutes()
+            detik = date.getSeconds()
+        }
     } catch (error) {
         console.error('Error fetching time:', error)
     }
@@ -196,6 +219,14 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
             <>
                 <h1>Waktu: {waktu.formatted}</h1>
                 <h1>Timezone: {waktu.zoneName}</h1>
+                <h1>Tanggal: {tanggal}</h1>
+                <h1>Hari: {hari}</h1>
+                <h1>Bulan: {bulan}</h1>
+                <h1>Tahun: {tahun}</h1>
+                <h1>Jam: {jam}</h1>
+                <h1>Menit: {menit}</h1>
+                <h1>Detik: {detik}</h1>
+
             </>
         ) : (
             <h1>Waktu: Not available</h1>

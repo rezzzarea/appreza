@@ -1,3 +1,11 @@
+// tujuan TS = membuat kita konsisten dengan tipe data sehingga kalau sewaktu-waktu ada yg mau re-assign value baru atau mau memproses datanya, kita bisa tahu kalau errornya sebelum aplikasi ny di deploy
+
+// let umur = 10 
+// auto infer = otomatis menentukan tipe data
+// umur = "10"
+// umur = "10"
+// umur = 10
+// let SepuluhThKedepan = 10 + umur
 
 type NominatimResult = {
     lat: string;
@@ -20,13 +28,14 @@ type AreaData = {
 }
 
 async function fetchAreaById(areaId: string): Promise<AreaData> {
-    console.log('Fetching area for:', areaId)
+    // dbwh ini u/ debugging
+    // console.log('Fetching area for:', areaId)
     const response = await fetch(
       `https://nominatim.openstreetmap.org/search?q=${areaId}&format=json&addressdetails=1&limit=10`,
       {
         headers: {
           "Accept-Language": "en", //biar gk bahasa jepang, dsb
-          "User-Agent": "MutabaahApp/1.0",
+          "User-Agent": "MutabaahApp/1.0", //handler nominatim biar gk ke block & menghindari bot generik / bot detection / abusive requests
         },
         cache: 'no-store',
       }
@@ -177,8 +186,27 @@ async function fetchKurs(currencyCode: string): Promise<KursData> {
 }
 
 
+/*
+FLOW 1 = fetchAreaById -> fetchCuaca -> fetchWaktu -> fetchMataUang -> fetchKurs
+1) routing parameter tersimpan {params} akan terisi oleh namaArea (yg kita ketik di browser)
+2) areaId dibuat sesuai parameter routing yg telah dibuka pada browser valuenya akan di proses u/ menjadi argumen pada function yg akan menghasilkan values pada keys yg kita butuhkan dan semua hasil tersebut akan kita simpan pada sebuah variable sebelum kita sortir bagian mana yg ingin di berikan kepada halaman website
+
+tau dr mn otak atik endpoint / link API , dr dokumentasi API ny
+
+3) area dibuat sebagai wadah yg menampung keys object yg akan kita panggil di website
+
+2) namaArea akan di destructuring menjadi areaId
+desctructuring a/ mewariskan tipe data dari suatu referensi tipe data ke var yg mau kita buat
+
+3) areaId akan di fetch ke API untuk mendapatkan data area
+4) data area akan di fetch ke API untuk mendapatkan data cuaca
+5) data area akan di fetch ke API untuk mendapatkan data waktu
+6) data area akan di fetch ke API untuk mendapatkan data mata uang
+7) data mata uang akan di fetch ke API untuk mendapatkan data kurs
+*/
 export default async function AreaPage({params}:{params:Promise<{namaArea:string}>}) {
-    const {namaArea: areaId} = await params
+    const {namaArea:areaId} = await params //tipe data areaId akan menjadi string sesuai namaArea
+    // const areaId = await params
     const area = await fetchAreaById(areaId)
     const cuaca = await fetchCuaca(area.lat, area.lon)
     let waktu = null
@@ -253,3 +281,37 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
       </main>
     );
 }
+
+
+
+
+/*
+
+JSON top level types:
+    object → { ... }
+    array → [ ... ]
+    string → "abc"
+    number → 123
+    boolean → true / false
+    null
+
+
+HTTP Headers:
+| **Category**               | **Description**                                                            | **Example Header**                                               | **Purpose**                                                                                    |
+| -------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Request Headers**        | Sent by the client to the server to provide context for the request.       | `User-Agent`, `Accept-Language`, `Authorization`, `Content-Type` | Tell the server who you are, what format you want, and how to process the data you're sending. |
+| **Response Headers**       | Sent by the server back to the client to provide context for the response. | `Content-Type`, `Date`, `Server`, `Set-Cookie`                   | Tell the client about the content being sent, the server details, and caching policies.        |
+| **Representation Headers** | Describe the payload (body) of the message.                                | `Content-Type`, `Content-Length`, `Content-Encoding`             | Indicate the format, size, and compression of the data being transmitted.                      |
+| **Control Headers**        | Define policies for caching, network routing, and authentication.          | `Cache-Control`, `Connection`, `Authorization`                   | Manage how the request/response is handled by intermediaries and ensure security.              |
+
+
+
+nominatim references:
+base format: 
+https://nominatim.openstreetmap.org/search?q=singapore&format=json
+limited:
+https://nominatim.openstreetmap.org/search?q={query}&format=json&addressdetails=1&limit=1
+(limit ny berdasarkan sort rank)
+https://nominatim.org/release-docs/develop/api/Search/
+https://nominatim.org/release-docs/latest/api/Output/
+*/

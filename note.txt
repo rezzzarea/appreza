@@ -54,6 +54,7 @@ merapikan halaman api area
 
 portofolio showcase:
 
+GeoLocation API Service
 penggunaan API = api berdasarkan wilayah, zona waktu, suhu, mata uang, geo lokasi
 crud fundamental & API = aplikasi hafalan quran = create, read (get all data santri), update data hafalan, delete data hafalan
 productive app - journal (dynamic routing, dashboard, data filtering, breadcrumb, text-editor),

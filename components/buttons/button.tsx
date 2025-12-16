@@ -1,9 +1,17 @@
 import React from 'react'
 
-function Button() {
+interface ButtonProps {
+  onClick?: () => void;
+  children?: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+function Button({ onClick, children = 'Search', type = 'button' }: ButtonProps) {
   return (
     <div>
-      <button className='bg-blue-800 rounded-2xl'>Search</button>
+      <button className='bg-blue-800 rounded-2xl' onClick={onClick} type={type}>
+        {children}
+      </button>
     </div>
   )
 }

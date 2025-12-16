@@ -1,5 +1,10 @@
 // tujuan TS = membuat kita konsisten dengan tipe data sehingga kalau sewaktu-waktu ada yg mau re-assign value baru atau mau memproses datanya, kita bisa tahu kalau errornya sebelum aplikasi ny di deploy
 
+import Button from "@/components/buttons/button";
+import Input from "@/components/inputs/input";
+import Navbar from "@/components/navbars/navbar";
+import Title from "@/components/titles/title";
+
 // let umur = 10 
 // auto infer = otomatis menentukan tipe data
 // umur = "10"
@@ -249,8 +254,18 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
     } catch (error) {
         console.error('Error fetching exchange rate:', error)
     }
+
     return (
-      <main>
+      /* 
+      background pakai bg-[hexcode bebas] atau rgba kaya gini bg-[rgba(123,114,68,0.61)]
+      warna teks text-[warnahexcode]
+      */
+      <main className="bg-[#fcfcfc] text-[#b96821]">
+        <Navbar />
+        <Title />
+        <Input />
+        <Button />
+
         <h1>Latitude: {area.lat}</h1>
         <h1>Longitude: {area.lon}</h1>
         <h1>Lokasi: {area.display_name}</h1>

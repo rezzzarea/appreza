@@ -1,16 +1,13 @@
+import { ButtonProps } from "@/types/buttons";
 import React from "react";
 
-interface ModularButtonProps {
-  children: React.ReactNode;
-  className?: string;
-  type?: "button" | "submit";
-}
+// interface ModularButtonProps {
+//   children: React.ReactNode;
+//   className?: string;
+//   type?: "button" | "submit";
+// }
 
-function ModularButton({
-  children,
-  className = "",
-  type = "button",
-}: ModularButtonProps) {
+function ModularButton(props:ButtonProps) {
   return (
     <>
       <button className={`${className}`} type={type}>

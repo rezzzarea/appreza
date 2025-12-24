@@ -7,7 +7,7 @@ import React from "react";
 function AreaPage() {
   return (
     <div className="w-full h-[100vh] flex items-center justify-center bg-amber-200">
-      <AreaInput />
+      <AreaInput /> 
     </div>
   );
 }

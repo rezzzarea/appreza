@@ -1,9 +1,9 @@
 // tujuan TS = membuat kita konsisten dengan tipe data sehingga kalau sewaktu-waktu ada yg mau re-assign value baru atau mau memproses datanya, kita bisa tahu kalau errornya sebelum aplikasi ny di deploy
 
-import Button from "@/components/buttons/button";
-import Input from "@/components/inputs/input";
+
 import Navbar from "@/components/navbars/navbar";
 import Title from "@/components/titles/title";
+import AreaSearchForm from "@/components/forms/area-search-form";
 
 // let umur = 10 
 // auto infer = otomatis menentukan tipe data
@@ -263,8 +263,7 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
       <main className="bg-[#fcfcfc] text-[#b96821]">
         <Navbar />
         <Title />
-        <Input />
-        <Button />
+        <AreaSearchForm />
 
         <h1>Latitude: {area.lat}</h1>
         <h1>Longitude: {area.lon}</h1>

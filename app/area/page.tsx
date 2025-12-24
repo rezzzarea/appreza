@@ -1,31 +1,20 @@
-'use client'
+import AreaButton from "@/components/buttons/AreaButton";
+import ModularButton from "@/components/buttons/ModularButton";
+import ModularInput from "@/components/inputs/ModularInput";
+import React from "react";
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Input from '@/components/inputs/input'
-import Button from '@/components/buttons/button'
-
-export default function HalamanUtamaArea(){
-    const [inputValue, setInputValue] = useState('')
-    const router = useRouter()
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        if (inputValue.trim()) {
-            router.push(`/area/${encodeURIComponent(inputValue.trim())}`)
-        }
-    }
-
-    return(
-        <div>
-            <div>Bismillah, ini halaman utama area nanti setelah link ini kasih / terus ketik nama wilayah manapun di dunia ini, insya Allah kita akan hadirkan suhu, waktu, kecepatan angin, dan kordinat wilayahnya</div>
-            <form onSubmit={handleSubmit} className="mt-4">
-                <Input
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                />
-                <Button type="submit" />
-            </form>
-        </div>
-    )
+function AreaPage() {
+  return (
+    <div className="w-full h-[100vh] gap-4 flex items-center justify-center bg-amber-200">
+      <form action="">
+        <ModularInput
+          placeholder="Cari wilayah"
+          className="bg-amber-700 px-4 py-1 rounded-2xl focus:ring-red-500 outline-yellow-500 focus:ring-2"
+        />
+        <AreaButton />
+      </form>
+    </div>
+  );
 }
+
+export default AreaPage;

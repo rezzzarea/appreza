@@ -1,23 +1,22 @@
 import { ButtonProps } from "@/types/buttons";
 import React from "react";
 
+//props = menentukan tipe data di atribut komponen yg kita gunakan
+function ModularButton(props: ButtonProps) {
+  const { children, ...rest } = props; //memisahkan children dari types yg ada di ButtonProps
+  return (
+    <>
+      <button {...rest}>{children}</button>
+    </>
+  );
+}
+export default ModularButton;
+
 // interface ModularButtonProps {
 //   children: React.ReactNode;
 //   className?: string;
 //   type?: "button" | "submit";
 // }
-
-function ModularButton(props:ButtonProps) {
-  return (
-    <>
-      <button className={`${className}`} type={type}>
-        {children}
-      </button>
-    </>
-  );
-}
-
-export default ModularButton;
 
 /*
 0-buat react component

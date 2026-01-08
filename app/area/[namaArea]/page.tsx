@@ -4,6 +4,7 @@
 import Navbar from "@/components/navbars/navbar";
 import Title from "@/components/titles/title";
 import AreaSearchForm from "@/components/forms/area-search-form";
+import AreaForm from "@/components/forms/AreaForm";
 
 // let umur = 10 
 // auto infer = otomatis menentukan tipe data
@@ -263,7 +264,8 @@ export default async function AreaPage({params}:{params:Promise<{namaArea:string
       <main className="bg-[#fcfcfc] text-[#b96821]">
         <Navbar />
         <Title />
-        <AreaSearchForm />
+        <AreaForm />
+        {/* <AreaSearchForm /> */}
 
         <h1>Latitude: {area.lat}</h1>
         <h1>Longitude: {area.lon}</h1>

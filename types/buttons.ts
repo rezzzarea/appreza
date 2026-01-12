@@ -3,4 +3,5 @@ export interface ButtonProps{
   className?: string; //mewajibkan tipe data string bila ingin isi value u/ className
   type?: "button" | "submit";
   disabled?:boolean;
+  onClick?: () => void;
 }

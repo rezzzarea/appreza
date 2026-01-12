@@ -9,6 +9,7 @@ onChange untuk mengambil value yg berubah setelah diketik
 function ModularInput(props: InputProps) {
   return (
     <>
+      {/* ... = spread */}
       <input type="text" {...props} />
     </>
   );

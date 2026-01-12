@@ -6,11 +6,26 @@ function ModularButton(props: ButtonProps) {
   const { children, ...rest } = props; //memisahkan children dari types yg ada di ButtonProps
   return (
     <>
+      {/* ...rest = rest parameter */}
       <button {...rest}>{children}</button>
     </>
   );
 }
 export default ModularButton;
+
+/*
+
+  konsep react & knp penggunaan react di industri IT:
+  tailwindCSS, slicing figma
+  dom > node > virtual dom 
+  dynamic route
+  typescript
+  spread ... , rest parameter ...rest, 
+  state management, useState, useEffect
+  fetching API, memahami API documentation
+  pahamin rfce, cara buat, cara pakai, cara import, cara masang types di component
+  
+*/
 
 // interface ModularButtonProps {
 //   children: React.ReactNode;

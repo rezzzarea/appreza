@@ -1,0 +1,37 @@
+1. Informasi Umum & Ringkasan
+  Judul: PRD Aplikasi E-commerce "TokoKita"
+  Ringkasan: Platform e-commerce mobile untuk jual beli produk fashion, bertujuan meningkatkan penjualan dan kepuasan pelanggan. 
+2. Tujuan & Konteks
+  Tujuan Bisnis: Meningkatkan penjualan 20% dalam 6 bulan, memperluas jangkauan pasar.
+  Masalah Pengguna: Sulit menemukan produk fashion berkualitas, proses belanja rumit. 
+3. Persona Pengguna
+  Nama: Anto (25 tahun), profesional muda, aktif di media sosial, mencari fashion trendi dengan harga terjangkau. 
+4. Fitur & Fungsionalitas (Fokus Utama)
+  Registrasi/Login: Email/Google/Facebook.
+  Beranda: Banner promosi, kategori produk, produk unggulan, rekomendasi.
+  Pencarian Produk: Berdasarkan kata kunci, filter (harga, merek, ukuran).
+  Halaman Detail Produk: Deskripsi, foto, harga, varian (warna/ukuran), ulasan, tombol 'Tambah ke Keranjang'.
+  Keranjang Belanja: Lihat item, ubah kuantitas, hapus item, total harga.
+  Checkout: Pilih alamat, metode pengiriman, metode pembayaran (kartu kredit, virtual account, COD).
+  Riwayat Pesanan: Lihat status pesanan (diproses, dikirim, selesai).
+  Manajemen Profil: Alamat, info akun. 
+5. User Journey (Contoh Kasus)
+Skenario: Anto ingin membeli mawar merah.
+Buka aplikasi, login.
+Cari "mawar merah" di search bar.
+Pilih filter "ukuran M".
+Pilih mawar yang disukai, lihat detail, klik "Tambah ke Keranjang".
+Pindah ke Keranjang, klik "Checkout".
+Isi data alamat, Simpan alamat utama, Pilih alamat pengiriman,.
+Pilih metode pembayaran "Virtual Account / QRIS", selesaikan pembayaran.
+Status pesanan berubah menjadi "Diproses". 
+6. Desain & Pengalaman Pengguna (UI/UX)
+  Desain: Bersih, modern, intuitif, warna utama biru dan putih.
+  Alur: Sederhana, 3-4 klik menuju checkout. 
+7. Persyaratan Teknis (Tingkat Tinggi)
+  Platform: iOS & Android (Native/Hybrid).
+  Backend: API RESTful, Database SQL/NoSQL.
+  Integrasi: Payment Gateway (Midtrans/Xendit), Jasa Pengiriman (JNE/SiCepat). 
+8. Prioritas & Batasan
+  Prioritas: Pencarian, Keranjang, Checkout (Penting).
+  Batasan: Durasi pengembangan 3 bulan, budget awal Rp X. 
